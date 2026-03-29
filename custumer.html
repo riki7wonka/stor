@@ -1,0 +1,2713 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المتجر الرسمي - الفخامة والأناقة</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0a1128', 950: '#050814' },
+                        pink: { 50: '#fdf8f0', 100: '#f8eedc', 200: '#ecdbbc', 300: '#dec297', 400: '#cfa66e', 500: '#c58e49', 600: '#b87739', 700: '#995b2e', 800: '#7c4929', 900: '#653b24', 950: '#361d10' },
+                        blue: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#1c39bb', 600: '#152b99', 700: '#11227a', 800: '#0e1d63', 900: '#0a184f', 950: '#060f33' },
+                        red: { 50: '#fdf2f4', 100: '#fbe3e8', 200: '#f8cbce', 300: '#f2a6ab', 400: '#e8727b', 500: '#c41e3a', 600: '#a31730', 700: '#871025', 800: '#711022', 900: '#611020', 950: '#360610' },
+                        green: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#006233', 600: '#004b27', 700: '#003a20', 800: '#002f1a', 900: '#002616', 950: '#00150c' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="theme-lang-manager.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+
+        :root {
+            --bg-main: #e8dece;
+            --text-main: #1a1a1a;
+            --text-slate: #4a3e2f;
+            --glass-bg: rgba(255, 252, 248, 0.92);
+            --card-bg: #ffffff;
+            --border-white: rgba(197, 142, 73, 0.5);
+            --input-bg: rgba(255, 255, 255, 0.9);
+            --pattern-light: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.83v58.34h-58.34l-.83-.83L0 54.628l.83-.83h58.34v-58.34z' fill='%23c58e49' fill-opacity='0.07' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .dark {
+            --bg-main: #0b0f19;
+            --text-main: #ffffff;
+            --text-slate: #94a3b8;
+            --glass-bg: rgba(15, 23, 42, 0.7);
+            --card-bg: rgba(30, 41, 59, 0.5);
+            --border-white: rgba(197, 142, 73, 0.3);
+            --input-bg: rgba(15, 23, 42, 0.8);
+            --pattern-light: none;
+        }
+
+        /* 1. التنسيقات العامة والأساسية */
+        body {
+            font-family: 'Almarai', sans-serif;
+            background-color: var(--bg-main);
+            background-image: var(--pattern-light);
+            color: var(--text-main);
+            transition: background 0.5s ease, color 0.5s ease;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* 2. تأثير الزجاج (Glassmorphism) */
+        .glass-card {
+            background: var(--glass-bg);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-white);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, border 0.3s ease;
+        }
+
+        /* 3. التدرج الوردي الفاخر */
+        .pink-gradient {
+            background: linear-gradient(135deg, #ec4899 0%, #be123c 100%);
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .pink-gradient:hover {
+            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* 4. إخفاء العناصر */
+        .hidden {
+            display: none !important;
+        }
+
+        /* 5. تنسيقات المدخلات (Inputs) */
+        input,
+        select,
+        textarea {
+            background: var(--input-bg) !important;
+            border: 1px solid var(--border-white) !important;
+            color: var(--text-main) !important;
+            transition: all 0.3s ease;
+        }
+
+        .dark input, .dark select, .dark textarea {
+            color: #ffffff !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #ec4899 !important;
+            outline: none;
+        }
+
+        /* 6. تأثير بطاقة المنتج */
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--card-bg);
+            border: 1px solid var(--border-white);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(236, 72, 153, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark .product-card {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 7. أنيميشن التنبيهات (Toasts) */
+        .toast-enter {
+            animation: slideIn 0.4s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* 8. شريط التمرير المخصص */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: var(--text-slate);
+            border-radius: 10px;
+        }
+
+        /* 9. تخصيص اختيار الألوان (Circles) للمنتج */
+        .color-option {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-option.selected {
+            transform: scale(1.15);
+            border-color: #ec4899;
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.3);
+        }
+
+        /* 10. تخصيص اختيار المقاسات */
+        .size-option {
+            padding: 8px 16px;
+            border-radius: 12px;
+            background: var(--border-white);
+            border: 1px solid var(--border-white);
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .size-option.selected {
+            background: #ec4899;
+            color: white;
+            border-color: #ec4899;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .animate-shake {
+            animation: shake 0.2s ease-in-out 0s 2;
+        }
+
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(245, 158, 11, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+        }
+
+        .orange-gradient {
+            background: linear-gradient(135deg, #ea580c 0%, #f59e0b 100%);
+            box-shadow: 0 10px 25px -5px rgba(234, 88, 12, 0.3);
+        }
+
+        @keyframes gradient-x {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animate-gradient-x {
+            background-size: 200% 200%;
+            animation: gradient-x 4s ease infinite;
+        }
+
+        .toast-success {
+            background: linear-gradient(to right, #ec4899, #f43f5e) !important;
+            border-radius: 50px !important;
+            font-weight: bold !important;
+        }
+
+        /* Helper contrast classes */
+        .text-slate-custom { color: var(--text-slate); }
+        .bg-slate-custom { background-color: var(--card-bg); }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .chip-active {
+            background: linear-gradient(to tr, #ec4899, #f43f5e);
+            color: white;
+            border-color: transparent !important;
+        }
+        .chip-inactive {
+            background: rgba(0,0,0,0.03);
+            color: #64748b;
+        }
+        .dark .chip-inactive {
+            background: rgba(255,255,255,0.05);
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body class="pb-24" onload="initStore()">
+    <!-- Starry Night Interactive Canvas (Dark Mode Only) -->
+    <canvas id="starCanvas" class="fixed inset-0 pointer-events-none z-[-1] opacity-0 transition-opacity duration-1000"></canvas>
+
+    <div id="toastContainer"
+        class="fixed top-5 left-1/2 -translate-x-1/2 z-[9999] flex flex-col gap-2 w-full max-w-sm px-4"></div>
+
+    <header class="sticky top-0 z-40 glass-card border-b border-white/5 shadow-2xl transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-3">
+            <div class="flex items-center justify-between gap-4">
+                <div id="storeLogoContainer" class="flex items-center cursor-pointer" onclick="window.scrollTo(0,0)"></div>
+                
+                <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-2">
+                        <button aria-label="Cse" onclick="window.mgr.toggleTheme()" 
+                            class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-black/5 dark:bg-black/20 border border-slate-200 dark:border-white/5 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-pink-500 transition-all shadow-sm">
+                            <i class="fas fa-sun theme-icon-sun hidden"></i>
+                            <i class="fas fa-moon theme-icon-moon"></i>
+                        </button>
+
+                        <!-- Advanced Globe Language Switcher (Desktop) -->
+                        <div class="globe-dropdown-wrapper relative z-50">
+                            <button data-globe-btn class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-black/5 dark:bg-black/20 border border-slate-200 dark:border-white/5 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-pink-500 transition-all shadow-sm focus:outline-none">
+                                <i class="fas fa-globe"></i>
+                            </button>
+                            <div data-globe-dropdown class="absolute top-full end-0 mt-3 w-44 bg-white/95 dark:bg-[#1a233a]/95 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col z-[100] opacity-0 invisible transition-all">
+                                <button onclick="window.mgr.setLanguage('ar')" class="text-right px-4 py-3 hover:bg-slate-50 dark:hover:bg-white/5 font-bold text-sm text-slate-700 dark:text-slate-300 transition-colors border-b border-slate-100 dark:border-white/5">العربية</button>
+                                <button onclick="window.mgr.setLanguage('en')" class="text-right px-4 py-3 hover:bg-slate-50 dark:hover:bg-white/5 font-bold text-sm text-slate-700 dark:text-slate-300 transition-colors border-b border-slate-100 dark:border-white/5">English</button>
+                                <button onclick="window.mgr.setLanguage('fr')" class="text-right px-4 py-3 hover:bg-slate-50 dark:hover:bg-white/5 font-bold text-sm text-slate-700 dark:text-slate-300 transition-colors">Français</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="toggleMobileMenu()" aria-label="Menu" class="md:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-pink-500 text-white flex items-center justify-center hover:bg-pink-600 transition-all shadow-lg hover:shadow-pink-500/30">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+        <!-- Mobile Side Menu Overlay -->
+        <div id="mobileOverlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-black/60 z-[60] hidden backdrop-blur-sm transition-opacity"></div>
+
+        <!-- Mobile Side Menu -->
+        <div id="mobileMenu" class="fixed top-0 right-0 bottom-0 w-[300px] bg-white dark:bg-[#020617] z-[70] transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-6">
+            <div class="flex items-center justify-between mb-8">
+                <h3 class="text-xl font-bold bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent">MENU</h3>
+                <button onclick="toggleMobileMenu()"aria-label="ose" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-500"><i class="fas fa-times"></i></button>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Theme Section -->
+                <div class="space-y-3">
+                    <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 px-2" data-i18n="nav_settings">الإعدادات</p>
+                    <button onclick="window.mgr.toggleTheme()" class="w-full flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5">
+                        <span class="text-sm font-bold text-slate-700 dark:text-slate-300">الوضع الليلي / النهاري</span>
+                        <i class="fas fa-moon text-pink-500 theme-icon-moon"></i>
+                        <i class="fas fa-sun text-yellow-500 theme-icon-sun hidden"></i>
+                    </button>
+                </div>
+
+                <!-- Language Section -->
+                <div class="space-y-3">
+                    <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 px-2">اللغة / Language</p>
+                    <div class="space-y-2">
+                        <button onclick="window.mgr.setLanguage('ar')" class="w-full text-right p-3 rounded-xl bg-slate-50 dark:bg-white/5 text-sm font-bold border border-slate-100 dark:border-white/5 text-slate-700 dark:text-slate-300">العربية (Arabic)</button>
+                        <button onclick="window.mgr.setLanguage('en')" class="w-full text-right p-3 rounded-xl bg-slate-50 dark:bg-white/5 text-sm font-bold border border-slate-100 dark:border-white/5 text-slate-700 dark:text-slate-300">English (انجلزية)</button>
+                        <button onclick="window.mgr.setLanguage('fr')" class="w-full text-right p-3 rounded-xl bg-slate-50 dark:bg-white/5 text-sm font-bold border border-slate-100 dark:border-white/5 text-slate-700 dark:text-slate-300">Français (فرنسية)</button>
+                    </div>
+                </div>
+
+                <!-- Categories Section -->
+                <div class="space-y-3">
+                    <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 px-2" data-i18n="p_category">الفئات</p>
+                    <div id="mobileCategoryList" class="space-y-2 max-h-[300px] overflow-y-auto custom-scrollbar">
+                        <!-- Will be populated via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-auto pt-6 border-t border-slate-100 dark:border-white/5">
+                <p class="text-center text-[10px] text-slate-400">© 2024 MEGA STORE LUXURY</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-6 sm:py-12">
+        <!-- New Modern Search & Categories Section -->
+        <div class="mb-12 space-y-8">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-5xl font-black mb-4" data-i18n="discover_new">اكتشف <span
+                        class="text-transparent bg-clip-text bg-gradient-to-l from-pink-400 to-pink-600">جديدنا</span>
+                </h2>
+                <p class="text-slate-400" data-i18n="shop_subtitle">تشكيلة مميزة تلبي جميع أذواقك بأسعار تنافسية.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- Main Search Bar (Always prominent) -->
+               <div class="relative group">
+    <div class="pointer-events-none absolute inset-0 bg-pink-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity rounded-[2rem]"></div>
+    
+    <i class="fas fa-search absolute right-6 top-1/2 -translate-y-1/2 text-slate-400 text-lg z-10"></i>
+    
+    <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="ابحث عن اسم المنتج أو التفاصيل..." data-i18n="search_placeholder"
+        class="relative z-10 w-full h-16 rounded-[2rem] pr-14 pl-6 text-sm font-bold bg-white dark:bg-slate-900 border-2 border-slate-100 dark:border-white/5 focus:border-pink-500 outline-none transition-all shadow-xl dark:shadow-pink-500/5">
+</div>
+
+                <!-- Category Chips (Horizontal Scrollable) -->
+                <div class="flex flex-col gap-3">
+                    <div class="flex items-center justify-between px-2">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-slate-400" data-i18n="p_category">سريع الفلترة</span>
+                        <div class="hidden sm:flex gap-1">
+                            <button onclick="document.getElementById('categoryChips').scrollBy({left: -100, behavior: 'smooth'})" class="w-6 h-6 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-[10px]"><i class="fas fa-chevron-right"></i></button>
+                            <button onclick="document.getElementById('categoryChips').scrollBy({left: 100, behavior: 'smooth'})" class="w-6 h-6 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-[10px]"><i class="fas fa-chevron-left"></i></button>
+                        </div>
+                    </div>
+                    <div id="categoryChips" class="flex gap-2.5 overflow-x-auto pb-2 no-scrollbar scroll-smooth">
+                        <!-- All chip -->
+                        <button onclick="setCategoryFilter('all')" data-cat-id="all" class="chip-active whitespace-nowrap px-6 py-3 rounded-full text-xs font-black transition-all border border-pink-500/20 shadow-lg shadow-pink-500/10">
+                            <span data-i18n="all_categories">كل المعروضات</span>
+                        </button>
+                        <!-- Other will be populated via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden desktop select filter for sync compatibility -->
+        <select id="categoryFilter" class="hidden">
+            <option value="all">all</option>
+        </select>
+
+        <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+        <div id="noProductsMsg" class="hidden text-center py-20 text-slate-500 font-bold text-xl" data-i18n="no_products">
+            <i class="fas fa-box-open text-4xl mb-4 block"></i> لا توجد منتجات تطابق بحثك حالياً.
+        </div>
+    </main>
+
+    <button onclick="toggleSidebar()"
+        class="fixed bottom-8 right-8 w-16 h-16 pink-gradient text-white rounded-full flex items-center justify-center z-[60] hover:scale-110 transition-transform shadow-2xl">
+        <i class="fas fa-shopping-bag text-2xl"></i>
+        <span id="cartBadgeMain"
+            class="absolute -top-2 -right-2 bg-white text-pink-600 w-7 h-7 rounded-full text-[12px] font-black flex items-center justify-center border-2 border-pink-500">0</span>
+    </button>
+
+    <div id="productModal"
+        class="hidden fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+        <div
+            class="glass-card w-full max-w-5xl max-h-[95vh] rounded-[2.5rem] overflow-hidden flex flex-col md:flex-row relative shadow-2xl">
+            <button onclick="closeModal('productModal')"
+                class="absolute top-6 right-6 z-20 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-500 transition-all">
+                <i class="fas fa-times text-xl text-white"></i>
+            </button>
+
+            <div class="md:w-1/2 p-6 bg-white/5 flex flex-col justify-between border-l border-white/5">
+                <div id="modalDiscountBadge"
+                    class="hidden absolute top-6 left-6 bg-red-600 text-white text-xs font-bold px-4 py-2 rounded-full z-10 shadow-lg">
+                </div>
+                <div class="h-64 md:h-96 w-full flex items-center justify-center mb-6">
+                    <img id="modalMainImg" src="" class="max-h-full object-contain drop-shadow-2xl">
+                </div>
+                <div id="thumbGallery" class="flex gap-3 overflow-x-auto py-2 justify-center custom-scrollbar"></div>
+            </div>
+
+            <div class="md:w-1/2 p-8 overflow-y-auto custom-scrollbar bg-slate-900/50 flex flex-col">
+                <span id="modalCategory"
+                    class="text-pink-500 font-bold text-[10px] uppercase bg-pink-500/10 px-3 py-1 rounded-full w-fit" data-i18n="category"></span>
+                <h2 id="modalTitle" class="text-3xl font-black mt-4 mb-4 text-white"></h2>
+
+                <!-- Star Rating Summary -->
+                <div id="modalRatingSummary" class="flex items-center gap-2 mb-4 hidden">
+                    <div class="flex text-yellow-500 text-sm" id="modalStarsRow"></div>
+                    <span id="modalRatingText" class="text-xs text-slate-400 font-bold"></span>
+                </div>
+
+                <div class="mb-6 bg-pink-500/5 p-4 rounded-2xl border border-pink-500/10">
+                    <span class="text-[11px] text-pink-400 font-black block mb-1" data-i18n="piece_price">سعر القطعة الواحدة:</span>
+                    <div id="modalPrice" class="text-5xl font-black text-pink-500 tracking-tighter">0 دج</div>
+                    <div id="discountSection" class="flex items-center gap-2 mt-2">
+                        <span id="modalOldPrice" class="text-lg text-slate-500 line-through hidden"></span>
+                        <span id="modalSavingsTag" class="text-green-500 text-[11px] font-bold hidden"></span>
+                    </div>
+                </div>
+
+                <p id="modalDesc" class="text-slate-400 text-sm leading-relaxed border-r-2 border-pink-500 pr-4 mb-6">
+                </p>
+
+                <!-- Reviews Section -->
+                <div id="modalReviewsSection" class="mt-8 pt-8 border-t border-white/5 space-y-6 hidden">
+                    <h3 class="text-xl font-black text-white amiri flex items-center gap-2">
+                        <i class="fas fa-comments text-pink-500"></i> <span data-i18n="rating_label">آراء الزبائن</span>
+                    </h3>
+                    
+                  <div id="ratingForm" class="bg-gradient-to-br from-slate-950 to-blue-950 p-8 rounded-[3rem] border-2 border-yellow-500/20 space-y-6 shadow-[0_0_60px_-10px_rgba(234,179,8,0.1)] relative overflow-hidden group transition-all duration-500 hover:border-yellow-500/40">
+    
+    <div class="absolute -inset-24 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNlYWIzMDgiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTAgMGg0MHY0MEgwVjB6bTIwIDIwaDIwdjIwSDIWMjB6TTAgMjBoMjB2MjBIMFYyMHoyMCAwaDIwdjIwSDIwVjB6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30 pointer-events-none"></div>
+
+    <div class="relative z-10 space-y-5">
+        <div class="flex items-center gap-3 border-b border-yellow-500/10 pb-4">
+            <i class="fas fa-feather-alt text-yellow-500 text-2xl"></i>
+            <h4 class="text-sm font-black text-white uppercase tracking-widest amiri" data-i18n="submit_rating_title">شاركنا تجربتك الملكية</h4>
+        </div>
+
+       <div class="flex justify-between items-center bg-black/30 p-5 rounded-2xl border border-yellow-500/10">
+    <span class="text-xs font-bold text-slate-300" data-i18n="submit_rating_label">تقييمك للمنتج:</span>
+    
+    <div class="flex gap-1.5 text-3xl text-blue-200/50" id="starSelector">
+        <i class="far fa-star cursor-pointer transition-all duration-300 scale-100 hover:scale-125 hover:text-yellow-400" data-star="1" onclick="setModalRating(1)"></i>
+        <i class="far fa-star cursor-pointer transition-all duration-300 scale-100 hover:scale-125 hover:text-yellow-400" data-star="2" onclick="setModalRating(2)"></i>
+        <i class="far fa-star cursor-pointer transition-all duration-300 scale-100 hover:scale-125 hover:text-yellow-400" data-star="3" onclick="setModalRating(3)"></i>
+        <i class="far fa-star cursor-pointer transition-all duration-300 scale-100 hover:scale-125 hover:text-yellow-400" data-star="4" onclick="setModalRating(4)"></i>
+        <i class="far fa-star cursor-pointer transition-all duration-300 scale-100 hover:scale-125 hover:text-yellow-400" data-star="5" onclick="setModalRating(5)"></i>
+    </div>
+</div>
+
+        <div class="space-y-3">
+            <input type="text" id="reviewerName" placeholder="اسمك الكريم (اختياري)" 
+                class="w-full bg-black/40 border border-yellow-500/10 rounded-xl p-4 text-xs text-white outline-none focus:border-yellow-500 focus:bg-black/60 focus:ring-1 focus:ring-yellow-500/30 transition-all amiri">
+            
+            <textarea id="reviewComment" placeholder="اكتب لنا رأيك الفاخر في المنتج..." data-i18n="review_placeholder" rows="3" 
+                class="w-full bg-black/40 border border-yellow-500/10 rounded-2xl p-5 text-sm text-white outline-none focus:border-yellow-500 focus:bg-black/60 focus:ring-1 focus:ring-yellow-500/30 transition-all resize-none custom-scrollbar"></textarea>
+        </div>
+
+        <button onclick="submitReview()" 
+            class="group w-full py-4 bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-slate-950 rounded-xl text-xs font-black transition-all duration-300 shadow-xl shadow-yellow-600/10 hover:shadow-yellow-500/30 flex items-center justify-center gap-2 tracking-wider">
+            <span data-i18n="submit_rating_btn">تأكيد التقييم الملكي</span>
+            <i class="fas fa-crown text-yellow-900 transition-transform group-hover:rotate-12"></i>
+        </button>
+    </div>
+</div>
+
+                    <div id="reviewsGlobalContainer" class="mt-8 border-t border-white/5 pt-6 hidden">
+    <div class="flex items-center justify-between mb-4">
+        <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest">آراء المشترين</h4>
+        
+        <button onclick="toggleReviewsDropdown()" class="flex items-center gap-2 text-[10px] font-bold text-pink-500 bg-pink-500/10 px-3 py-1.5 rounded-full hover:bg-pink-500/20 transition-all">
+            <span id="reviewToggleText">عرض التعليقات</span>
+            <i class="fas fa-chevron-down transition-transform duration-300" id="reviewChevron"></i>
+        </button>
+    </div>
+
+    <div id="reviewsDropdown" class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+        <div id="reviewsList" class="space-y-4 max-h-60 overflow-y-auto custom-scrollbar pr-2 py-2">
+            </div>
+    </div>
+</div>
+                </div>
+
+                <div id="selectionArea" class="space-y-6 flex-1">
+                    <div id="colorContainer" class="hidden">
+                        <label class="block text-[11px] font-black text-slate-400 mb-2 uppercase" data-i18n="select_color">اختر اللون:</label>
+                        <div id="colorPicker" class="flex flex-wrap gap-3"></div>
+                    </div>
+                    <div id="sizeContainer" class="hidden">
+                        <label class="block text-[11px] font-black text-slate-400 mb-2 uppercase" data-i18n="select_size">حدد المقاس:</label>
+                        <div id="sizePicker" class="flex flex-wrap gap-2"></div>
+                    </div>
+
+                    <div id="quantityContainer" class="mb-4">
+                        <label class="block text-[11px] font-black text-slate-400 mb-3 uppercase tracking-wider" data-i18n="quantity">حدد
+                            الكمية المطلوبة:</label>
+
+                        <div
+                            class="flex items-center gap-2 bg-gradient-to-r from-slate-800/80 to-slate-900/80 p-2 rounded-full w-fit border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.3)] backdrop-blur-md">
+
+                            <button type="button" onclick="decrementQty()"
+                                class="w-10 h-10 rounded-full bg-white/5 hover:bg-pink-500 text-white flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_15px_rgba(236,72,153,0.4)] hover:scale-110">
+                                <i class="fas fa-minus text-sm"></i>
+                            </button>
+
+                            <input id="varQty" type="number" value="1" min="1"
+                                class="w-14 text-center bg-transparent text-white font-black text-2xl border-none focus:ring-0 p-0 m-0"
+                                readonly>
+
+                            <button type="button" onclick="incrementQty()"
+                                class="w-10 h-10 rounded-full bg-white/5 hover:bg-pink-500 text-white flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_15px_rgba(236,72,153,0.4)] hover:scale-110">
+                                <i class="fas fa-plus text-sm"></i>
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <div id="bulkOffersDisplay" class="mb-4">
+                        <p class="text-[10px] font-black text-pink-500 mb-2 uppercase tracking-widest" data-i18n="save_bundle">باقات التوفير
+                            المتاحة:</p>
+                        <div id="offersStatusGrid" class="grid grid-cols-2 gap-2"></div>
+                    </div>
+
+                    <button type="button" onclick="addSelectionToLocalList()"
+                        class="w-full py-3 border-2 border-dashed border-white/10 rounded-2xl text-slate-400 text-xs font-bold hover:border-pink-500 hover:text-pink-500 transition-all">
+                        <i class="fas fa-plus-circle ml-2"></i><span data-i18n="add_option">أضف هذا الخيار</span>
+                    </button>
+
+                    <div id="modalSelectionsList" class="space-y-2 mt-4"></div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-white/10">
+                    <div
+                        class="flex justify-between items-center mb-4 bg-white/5 p-4 rounded-2xl border border-white/5">
+                        <span class="text-sm font-bold text-white uppercase" data-i18n="total_cart">المجموع الإجمالي لمشترياتك:</span>
+                        <div id="modalFinalTotal" class="text-3xl font-black text-white">0 دج</div>
+                    </div>
+<div class="px-6 pb-8 text-center">
+    <button type="button" onclick="confirmAllToCart()" 
+        class="group relative w-full h-14 rounded-full p-px overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-2xl shadow-pink-500/20">
+        
+        <div class="absolute inset-0 bg-gradient-to-r from-pink-500 via-rose-300 to-pink-600 animate-gradient-x"></div>
+
+        <div class="absolute inset-[1.5px] bg-[#0f0f0f] rounded-full transition-colors group-hover:bg-transparent"></div>
+
+        <div class="relative flex items-center justify-center gap-3 w-full h-full bg-gradient-to-r from-pink-500/5 to-rose-500/5 rounded-full group-hover:from-pink-500 group-hover:to-rose-400 transition-all duration-500">
+            
+            <span class="text-pink-100 font-bold tracking-widest text-base group-hover:text-white transition-colors duration-300" data-i18n="add_to_cart">
+                إضافة للحقيبة
+            </span>
+
+            <div class="flex items-center justify-center w-8 h-8 rounded-full bg-pink-500 group-hover:bg-white transition-colors duration-300 shadow-lg shadow-pink-500/40">
+                <i class="fas fa-plus text-[10px] text-white group-hover:text-pink-600 transition-colors duration-300"></i>
+            </div>
+        </div>
+    </button>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cartSidebar"
+        class="fixed inset-y-0 right-0 w-full md:w-[480px] bg-[#fcfaf7] dark:bg-[#020617] border-l border-slate-200 dark:border-white/10 translate-x-full transition-transform duration-500 z-[90] shadow-2xl flex flex-col">
+        <div class="p-6 border-b border-slate-200 dark:border-white/10 flex justify-between items-center bg-white dark:bg-white/5">
+            <h2 class="text-xl font-black text-slate-900 dark:text-white" data-i18n="cart_title">حقيبة التسوق</h2>
+            <button onclick="toggleSidebar()" aria-label="إغلاق السلة"
+                class="w-10 h-10 rounded-full bg-slate-100 dark:bg-white/10 flex items-center justify-center hover:bg-red-500 hover:text-white dark:text-white transition-colors">
+                <i class="fas fa-times text-slate-500 dark:text-white hover:text-white"></i>
+            </button>
+        </div>
+       
+  <div id="cartStep1" class="flex-1 overflow-y-auto p-4 custom-scrollbar">
+    <div id="sidebarCartItems" class="space-y-4"></div>
+
+    <div id="subtotalContainer" class="mt-8 p-6 rounded-[2.5rem] bg-slate-50 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 shadow-inner">
+        
+        <div class="flex flex-col items-center text-center mb-6">
+            <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-500/20 rounded-full flex items-center justify-center mb-3">
+                <i class="fas fa-percentage text-emerald-600 dark:text-emerald-400"></i>
+            </div>
+            <h5 class="text-sm font-black text-slate-800 dark:text-white">سيتم تطبيق أفضل العروض تلقائياً</h5>
+            <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1 px-4">
+                اكمل البيانات في الخطوة التالية للحصول على الخصم النهائي وسعر التوصيل لولايتك
+            </p>
+        </div>
+
+        <button onclick="switchCartTab(2)"
+            class="w-full bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 py-5 rounded-2xl font-black text-white flex justify-center items-center gap-3 shadow-lg shadow-pink-500/25 transition-all active:scale-[0.98] group relative overflow-hidden">
+            
+            <span class="relative z-10">تأكيد الطلب والشحن</span>
+            <i class="fas fa-chevron-left relative z-10 group-hover:-translate-x-1 transition-transform"></i>
+            
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
+        </button>
+
+        <div class="flex justify-center gap-4 mt-5 opacity-60">
+            <div class="flex items-center gap-1 text-[9px] font-bold text-slate-500">
+                <i class="fas fa-truck text-[10px]"></i> شحن سريع
+            </div>
+            <div class="flex items-center gap-1 text-[9px] font-bold text-slate-500">
+                <i class="fas fa-undo text-[10px]"></i> ضمان استرجاع
+            </div>
+            <div class="flex items-center gap-1 text-[9px] font-bold text-slate-500">
+                <i class="fas fa-hand-holding-usd text-[10px]"></i> دفع عند الاستلام
+            </div>
+        </div>
+    </div>
+</div>
+        <div id="cartStep2" class="hidden flex-1 overflow-y-auto p-0 custom-scrollbar">
+            <div class="sticky top-0 bg-black/40 backdrop-blur-2xl z-10 p-6 border-b border-white/10">
+                <div class="flex items-center justify-between">
+                    <button onclick="switchCartTab(1)"
+                        class="group flex items-center gap-2 text-slate-400 hover:text-pink-500 transition-all">
+                        <i class="fas fa-arrow-right text-xs group-hover:-translate-x-1 transition-transform"></i>
+                        <span class="text-xs font-bold">العودة للسلة</span>
+                    </button>
+                    <h3 class="text-lg font-black text-slate-900 dark:text-white italic uppercase tracking-tighter">إتمام <span
+                            class="text-pink-500">الطلب</span></h3>
+                </div>
+            </div>
+
+            <form onsubmit="submitOrder(event)" class="p-6 space-y-6">
+
+                <div class="space-y-4">
+                    <div class="space-y-2">
+                        <label class="block text-[10px] text-slate-500 mr-2 font-black uppercase tracking-widest" data-i18n="customer_name">الاسم واللقب</label>
+                        <div class="relative group">
+                            <div
+                                class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-slate-600 group-focus-within:text-pink-500 transition-colors">
+                                <i class="fas fa-user-tie text-sm"></i>
+                            </div>
+                            <input type="text" id="cName" required placeholder="أدخل اسمك الكامل" data-i18n="customer_name_placeholder"
+                                class="w-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl pr-12 pl-4 py-4 text-slate-900 dark:text-white text-sm focus:border-pink-500/50 focus:bg-slate-50 dark:focus:bg-white/10 outline-none transition-all">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-[10px] text-slate-500 mr-2 font-black uppercase tracking-widest" data-i18n="customer_phone">رقم الهاتف</label>
+                        <div class="relative group">
+                            <div
+                                class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-slate-600 group-focus-within:text-pink-500 transition-colors">
+                                <i class="fas fa-phone-flip text-sm"></i>
+                            </div>
+                            <input type="tel" id="cPhone" required oninput="validatePhoneLive(this)"
+                                placeholder="05 / 06 / 07" data-i18n="phone_placeholder"
+                                class="w-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl pr-12 pl-4 py-4 text-slate-900 dark:text-white text-sm font-mono tracking-[2px] focus:border-pink-500/50 focus:bg-slate-50 dark:focus:bg-white/10 outline-none transition-all">
+                        </div>
+                        <p id="phoneErrorMsg"
+                            class="text-[9px] text-red-500 mt-1 mr-2 opacity-0 transition-opacity font-bold" data-i18n="phone_error">يجب أن يبدأ
+                            بـ 05، 06 أو 07</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-2">
+                        <label class="block text-[10px] text-slate-500 mr-2 font-black">الولاية</label>
+                        <div class="relative">
+                            <select id="cWilaya" onchange="onWilayaChange()" required
+                                class="w-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl px-4 py-4 text-slate-900 dark:text-white text-[11px] focus:border-pink-500/50 outline-none cursor-pointer appearance-none transition-all">
+                                <option value="">اختر الولاية</option>
+                            </select>
+                            <i
+                                class="fas fa-chevron-down absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-[10px]"></i>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-[10px] text-slate-500 mr-2 font-black">البلدية</label>
+                        <div class="relative">
+                            <select id="cMuni" onchange="onMuniChange()" disabled required
+                                class="w-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl px-4 py-4 text-slate-900 dark:text-white text-[11px] focus:border-pink-500/50 outline-none cursor-pointer appearance-none transition-all disabled:opacity-20">
+                                <option value="">البلدية</option>
+                            </select>
+                            <i
+                                class="fas fa-chevron-down absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-[10px]"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <label class="block text-[10px] text-slate-500 mr-2 font-black uppercase tracking-widest">طريقة
+                        الاستلام</label>
+                    <div id="deliveryOptionsContainer" class="grid grid-cols-2 gap-3">
+                        <label id="btnHome" onclick="selectDelivery('home')"
+                            class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-slate-200 dark:border-white/5 bg-white dark:bg-white/5 cursor-pointer hover:bg-slate-50 dark:hover:bg-white/10 transition-all opacity-30 pointer-events-none text-slate-900 dark:text-white">
+                            <input type="radio" id="radioHome" name="deliveryMethod" value="home" class="hidden">
+                            <i class="fas fa-house-user mb-2 text-lg"></i>
+                            <span class="text-[10px] font-bold">للمنزل</span>
+                            <span class="price-tag text-[9px] text-pink-500 mt-1">-- دج</span>
+                        </label>
+
+                        <label id="btnOffice" onclick="selectDelivery('office')"
+                            class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-slate-200 dark:border-white/5 bg-white dark:bg-white/5 cursor-pointer hover:bg-slate-50 dark:hover:bg-white/10 transition-all opacity-30 pointer-events-none text-slate-900 dark:text-white">
+                            <input type="radio" id="radioOffice" name="deliveryMethod" value="office" class="hidden">
+                            <i class="fas fa-building-flag mb-2 text-lg"></i>
+                            <span class="text-[10px] font-bold">مكتب التوصيل</span>
+                            <span class="price-tag text-[9px] text-pink-500 mt-1">-- دج</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mt-10 relative">
+                    <div
+                        class="bg-gradient-to-br from-orange-600/20 to-transparent border border-orange-500/20 rounded-3xl p-6 text-center backdrop-blur-sm">
+                        <p class="text-[10px] text-slate-400 font-bold uppercase tracking-[3px] mb-1">المبلغ الإجمالي
+                            للدفع</p>
+                        <div class="flex items-center justify-center gap-2">
+                            <span id="cartTotalVal" class="text-4xl font-black text-slate-900 dark:text-white tracking-tighter">0</span>
+                            <span class="text-pink-500 font-bold text-sm">دج</span>
+                        </div>
+                        <div id="shippingNote" class="text-[9px] text-slate-500 mt-2 italic">
+                            (السعر يشمل المنتجات + مصاريف التوصيل)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 pb-10">
+                    <button type="submit"
+                        class="w-full bg-gradient-to-r from-pink-600 to-pink-400 text-white font-black py-5 rounded-2xl shadow-xl shadow-pink-600/30 hover:scale-[1.02] transition-all active:scale-[0.98] flex justify-center items-center gap-3">
+                        <span class="text-base uppercase tracking-wider" data-i18n="confirm_order_btn">تأكيد الطلب الآن</span>
+                        <i class="fas fa-paper-plane text-xs animate-pulse"></i>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+        <style>
+            input[name="deliveryMethod"]:checked+i,
+            input[name="deliveryMethod"]:checked~span {
+                color: #f97316;
+                /* orange-500 */
+            }
+
+            label:has(input[name="deliveryMethod"]:checked) {
+                border-color: #f97316;
+                background: rgba(249, 115, 22, 0.1);
+                opacity: 1 !important;
+            }
+        </style>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+</body>
+<script>
+   
+
+    let allProducts = [];
+    let categories = [];
+    let products = []; // أضيفي هذا أيضاً إذا كنتِ تستخدمينه
+    let shippingData = [];
+
+    console.log("تم تحميل " + categories.length + " فئة");
+    // --- 1. جلب البيانات من LocalStorage (نفس المفاتيح المستخدمة في صفحة المدير) ---
+
+    let storeLogo = localStorage.getItem('ms_logo_v4');
+// هذا السطر يحل مشكلة الـ ReferenceError التي تظهر في الكونسول عندك
+const calculateFinalTotal = calculateFinalTotals;
+    // --- 2. المتغيرات العامة للحالة ---
+    let activeProduct = null;
+    let selectedColor = "";
+    let selectedSize = "";
+    let currentCart = [];
+    let shippingCost = 0;
+    window.selectedColor = ""; 
+window.selectedSize = "";
+window.modalTempSelections = [];
+
+  async function initStore() {
+const logoContainer = document.getElementById('storeLogoContainer');
+
+    try {
+        // 1. جلب رابط اللوغو من قاعدة البيانات فوراً
+        const { data: settings, error: sErr } = await supabase
+            .from('store_settings')
+            .select('logo_url, store_name')
+            .eq('id', 1)
+            .single();
+
+        if (sErr) throw sErr;
+
+        // 2. التحقق: إذا كان الرابط موجوداً في السيرفر، نرسم الصورة
+        if (settings && settings.logo_url) {
+            // إضافة ?t= لمنع المتصفح من إظهار الصورة القديمة (Cache)
+            const finalLogoUrl = `${settings.logo_url}?t=${Date.now()}`;
+            
+            logoContainer.innerHTML = `
+                <img src="${finalLogoUrl}" 
+                     alt="Store Logo" 
+                     class="h-10 md:h-14 object-contain transition-transform hover:scale-105"
+                     onerror="this.style.display='none'">`; 
+        } else {
+            // إذا لم يوجد لوغو (NULL)، نعرض اسم المحل كبديل مؤقت لكي لا يختفي الهيدر
+            logoContainer.innerHTML = `
+                <h1 class="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-l from-pink-500 to-rose-600 tracking-tighter uppercase">
+                    ${settings?.store_name || 'MEGA STORE'}
+                </h1>`;
+        }
+        // 2. مزامنة السلة فوراً من الذاكرة
+        const saved = localStorage.getItem('cart');
+        window.currentCart = (saved && saved !== "undefined") ? JSON.parse(saved) : [];
+
+        // 3. جلب المنتجات من Supabase
+        const { data: prods, error: pErr } = await supabase.from('products').select('*');
+        if (pErr) throw pErr;
+
+        allProducts = prods || [];
+        products = prods || [];
+        
+        renderProducts(allProducts);
+        console.log("✅ المنتجات جاهزة");
+
+        // 4. جلب الفئات والولايات بالتوازي
+        const [catsResponse, shipsResponse] = await Promise.all([
+            supabase.from('categories').select('*'),
+            supabase.from('wilayas').select('*')
+        ]);
+
+        categories = catsResponse.data || [];
+        shippingData = shipsResponse.data || [];
+
+        populateCategoryFilter();
+        populateWilayas();
+
+        renderProducts(allProducts); 
+
+        // 5. تحديث السلة
+        if (typeof updateSidebarCart === "function") {
+            updateSidebarCart(); 
+        }
+
+    } catch (error) {
+        console.error("خطأ عام في التهيئة:", error.message);
+        if (typeof showToast === "function") showToast("فشل الاتصال بالخادم", "error");
+    }
+
+    // 6. معالجة روابط المنتجات
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    if (productId) {
+        setTimeout(() => {
+            if (typeof openProduct === "function") openProduct(productId);
+        }, 800);
+    }
+}
+    // --- 4. دالة عرض التنبيهات (Toast) ---
+    function showToast(msg, type = 'success') {
+        const container = document.getElementById('toastContainer');
+        const toast = document.createElement('div');
+        const bgClass = type === 'success' ? 'bg-pink-500' : 'bg-red-600';
+        const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+
+        toast.className = `${bgClass} text-white px-6 py-4 rounded-2xl shadow-2xl font-bold text-sm toast-enter flex items-center gap-3 border border-white/20`;
+        toast.innerHTML = `<i class="fas ${icon} text-lg"></i> ${msg}`;
+
+        container.appendChild(toast);
+
+        // إخفاء وحذف التنبيه بعد 3 ثواني
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(-20px)';
+            toast.style.transition = 'all 0.4s ease';
+            setTimeout(() => toast.remove(), 400);
+        }, 3000);
+    }
+
+    // --- 5. دالة رسم/عرض شبكة المنتجات ---
+    window.renderProducts = async function(list) {
+    const grid = document.getElementById('productsGrid');
+    if (!grid) return;
+
+    // فلترة المنتجات التي نفدت كميتها
+    const availableProducts = list.filter(p => {
+        const totalStock = p.stock_data?.reduce((sum, item) => sum + (parseInt(item.qty) || 0), 0) || 0;
+        return totalStock > 0;
+    });
+
+    if (availableProducts.length === 0) {
+        grid.innerHTML = `<div class="col-span-full text-center py-20 text-slate-500">لا توجد منتجات تطابق بحثك حالياً.</div>`;
+        return;
+    }
+
+    grid.innerHTML = availableProducts.map(p => {
+        const catObj = categories.find(c => String(c.id) === String(p.category_id));
+        const categoryName = catObj ? catObj.name : "عام";
+        
+        const name = window.mgr ? window.mgr.tDynamic(p, 'name') : p.name;
+        
+        const hasDiscount = p.discount && parseFloat(p.discount) > 0;
+        const originalPrice = parseFloat(p.price) || 0;
+        const finalPrice = hasDiscount ? Math.round(originalPrice - (originalPrice * (p.discount / 100))) : originalPrice;
+
+        const totalStock = p.stock_data?.reduce((sum, item) => sum + (parseInt(item.qty) || 0), 0) || 0;
+        const isOutOfStock = totalStock <= 0;
+
+        const discountLabel = window.mgr ? window.mgr.t('discount_label') : 'خصم';
+        const outOfStockLabel = window.mgr ? window.mgr.t('out_of_stock') : 'نفدت الكمية';
+
+        return `
+        <div onclick="${isOutOfStock ? '' : `openProduct(${p.id})`}" 
+             class="product-card rounded-[2rem] overflow-hidden cursor-pointer group flex flex-col h-full bg-white dark:bg-white/5 border border-slate-100 dark:border-white/10 transition-all hover:border-pink-500/50 shadow-sm dark:shadow-none ${isOutOfStock ? 'opacity-75 grayscale-[0.5]' : ''}">
+            
+            <div class="relative h-64 flex items-center justify-center p-6 bg-slate-100 dark:bg-slate-800/20">
+                ${hasDiscount ? `<span class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-black px-3 py-1.5 rounded-full z-10 shadow-lg">${discountLabel} ${p.discount}%</span>` : ''}
+                ${isOutOfStock ? `<span class="absolute inset-0 flex items-center justify-center bg-black/60 text-white font-black text-sm z-20 backdrop-blur-[2px]">${outOfStockLabel}</span>` : ''}
+                
+                <img src="${p.images?.[0] || 'placeholder.png'}" 
+                     loading="lazy" 
+                     alt="${p.name}"
+                     class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-700 ease-out">
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between bg-white/80 dark:bg-slate-900/50">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-[10px] text-pink-500 font-black uppercase tracking-widest opacity-80">${categoryName}</span>
+                        
+                        ${p.show_ratings !== false ? `
+                            <div class="flex items-center gap-1 bg-yellow-500/10 px-2 py-0.5 rounded-full">
+                                <i class="fas fa-star text-yellow-500 text-[10px]"></i>
+                                <span class="text-[10px] font-black text-slate-700 dark:text-slate-300" id="card-rating-${p.id}">
+                                    0.0
+                                </span>
+                            </div>
+                        ` : ''}
+                    </div>
+                    <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-4 line-clamp-2 leading-tight group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">${name}</h3>
+                </div>
+                
+                <div class="flex items-end justify-between mt-4">
+                    <div>
+                        ${hasDiscount ? `<div class="text-xs text-slate-400 dark:text-slate-500 line-through mb-1">${originalPrice} دج</div>` : ''}
+                        <div class="text-2xl font-black text-slate-900 dark:text-white">
+                            ${finalPrice} <span class="text-sm text-orange-500 font-medium">دج</span>
+                        </div>
+                    </div>
+                    
+                    <div class="w-12 h-12 rounded-2xl ${isOutOfStock ? 'bg-slate-200 dark:bg-slate-700' : 'bg-slate-100 dark:bg-white/10 group-hover:bg-orange-600 group-hover:text-white dark:group-hover:bg-orange-600'} text-slate-500 dark:text-white flex items-center justify-center transition-all duration-300 shadow-xl border border-slate-200 dark:border-white/5">
+                        <i class="fas ${isOutOfStock ? 'fa-times' : 'fa-shopping-basket'} text-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+    }).join('');
+
+    // تشغيل جلب التقييمات فور انتهاء رسم المنتجات
+    updateCardRatings();
+};
+
+// دالة لجلب التقييمات الحقيقية وتحديث الأرقام في البطاقات
+async function updateCardRatings() {
+    try {
+        // جلب حالة الإخفاء والتقييمات
+        const { data: products, error } = await supabase
+            .from('products')
+            .select('id, show_ratings, reviews(rating)');
+
+        if (error || !products) return;
+
+        products.forEach(p => {
+            // 1. حاوية "نتيجة التقييم" (التي تظهر فوق كرت المنتج أو بجانبه)
+            const ratingDisplay = document.getElementById(`card-rating-container-${p.id}`);
+            
+            // 2. فحص حالة الإخفاء من قاعدة البيانات
+            if (p.show_ratings === false) {
+                // إخفاء "النتيجة" فقط من الواجهة
+                if (ratingDisplay) ratingDisplay.style.display = 'none'; 
+            } else {
+                // إظهار النتيجة إذا كانت مفعلة وكان هناك تقييمات
+                const reviews = p.reviews || [];
+                if (reviews.length > 0) {
+                    const sum = reviews.reduce((acc, r) => acc + (r.rating || 0), 0);
+                    const avg = (sum / reviews.length).toFixed(1);
+                    
+                    const ratingValueEl = document.getElementById(`card-rating-${p.id}`);
+                    if (ratingValueEl) ratingValueEl.innerText = avg;
+                    if (ratingDisplay) ratingDisplay.style.display = 'flex';
+                }
+            }
+
+            // ملاحظة: فورم إدخال التقييم (النجوم التي يضغط عليها الزبون) 
+            // تبقى تعمل لأننا لم نقم بإخفائها هنا.
+        });
+
+    } catch (e) {
+        console.error("Error updating card ratings:", e);
+    }
+}
+    // دالة لحذف قطعة من القائمة المؤقتة
+    // دالة لزيادة الكمية
+    function incrementQty() {
+        const qtyInput = document.getElementById('varQty');
+        let currentVal = parseInt(qtyInput.value) || 1;
+        qtyInput.value = currentVal + 1;
+
+        // مزامنة القائمة المؤقتة مع العداد (إضافة عنصر وهمي للحفاظ على العدد)
+        if (selectedColor && selectedSize) {
+            modalTempSelections.push({ color: selectedColor, size: selectedSize });
+        }
+
+        updateModalUI();
+    }
+
+    function decrementQty() {
+        const qtyInput = document.getElementById('varQty');
+        let currentVal = parseInt(qtyInput.value) || 1;
+        if (currentVal > 1) {
+            qtyInput.value = currentVal - 1;
+            updateModalUI(); // سيقوم بتحديث السعر فوراً بناءً على النقص
+        }
+    }
+
+  function confirmAllToCart() {
+    // 1. جلب السلة الحالية من localStorage لضمان عدم ضياع المنتجات القديمة
+    let currentCart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // 2. التحقق: إذا كانت القائمة المؤقتة فارغة، نحاول إضافة الخيار الحالي المفتوح تلقائياً
+    if (modalTempSelections.length === 0) {
+        // تنفيذ دالة الإضافة التي أصلحناها سابقاً (ستتحقق من اللون والمقاس وتضيف لـ modalTempSelections)
+        addSelectionToLocalList(); 
+        
+        // إذا ظلت فارغة بعد المحاولة (بسبب عدم اختيار لون/مقاس مثلاً)، نتوقف
+        if (modalTempSelections.length === 0) return;
+    }
+
+    // 3. نقل كل الاختيارات من modalTempSelections إلى السلة الحالية
+    modalTempSelections.forEach(selection => {
+        const newItem = {
+            cartId: selection.tempId || (Date.now() + Math.random()), // المعرف الفريد لكل خيار
+            id: activeProduct.id,
+            name: activeProduct.name,
+            // نرسل السعر الأصلي، ودالة updateSidebarCart هي من ستحسب الخصم/العرض بناءً على الإجمالي
+            price: parseFloat(activeProduct.price), 
+            color: selection.color || "افتراضي",
+            size: selection.size || "افتراضي",
+            qty: 1, // كل سطر في القائمة المؤقتة يمثل قطعة واحدة (أو حسب منطقك)
+            image: (activeProduct.images && activeProduct.images.length > 0) ? activeProduct.images[0] : (activeProduct.image || ''),
+        };
+        currentCart.push(newItem);
+    });
+
+    // 4. التحديث النهائي للمخزن والنافذة العالمية
+    window.currentCart = currentCart;
+    localStorage.setItem('cart', JSON.stringify(window.currentCart));
+
+    // 5. تحديث الواجهة (هنا سيتم تفعيل العروض تلقائياً لأننا سنحدث السلة بالكامل)
+    if (typeof updateSidebarCart === 'function') {
+        updateSidebarCart();
+    }
+
+    // 6. تنظيف وإغلاق
+    closeModal('productModal');
+    modalTempSelections = []; // تصفير القائمة المؤقتة للمنتج القادم
+    window.selectedColor = "";
+    window.selectedSize = "";
+
+    showToast("تم إضافة جميع الاختيارات للحقيبة بنجاح ✅");
+
+    // 7. فتح السلة الجانبية
+    if (typeof openSidebar === 'function') {
+        openSidebar();
+    } else {
+        const sidebar = document.getElementById('cartSidebar');
+        if (sidebar) sidebar.classList.remove('translate-x-full');
+    }
+}
+    let modalTempSelections = []; // مصفوفة لتخزين الاختيارات قبل الإضافة للسلة
+function addSelectionToLocalList() {
+    // 1. جلب الحاويات للتأكد هل هي ظاهرة أم لا
+    const colorCont = document.getElementById('colorContainer');
+    const sizeCont = document.getElementById('sizeContainer');
+    
+    const needsColor = colorCont && !colorCont.classList.contains('hidden');
+    const needsSize = sizeCont && !sizeCont.classList.contains('hidden');
+
+    // 2. فحص الاختيارات (الآن نتحقق من window.selectedColor و window.selectedSize)
+    if (needsColor && (!window.selectedColor || window.selectedColor === "" || window.selectedColor === "افتراضي")) {
+        showToast("يرجى اختيار اللون أولاً", "error");
+        return;
+    }
+    if (needsSize && (!window.selectedSize || window.selectedSize === "" || window.selectedSize === "افتراضي")) {
+        showToast("يرجى اختيار المقاس أولاً", "error");
+        return;
+    }
+
+    const qtyInput = document.getElementById('varQty');
+    const numToAdd = parseInt(qtyInput.value) || 1;
+
+    // 3. إضافة الاختيارات للمصفوفة المؤقتة
+    for (let i = 0; i < numToAdd; i++) {
+        modalTempSelections.push({
+            color: needsColor ? window.selectedColor : "افتراضي",
+            size: needsSize ? window.selectedSize : "افتراضي",
+            tempId: Date.now() + Math.random()
+        });
+    }
+
+    // --- [تم إزالة كود تصفير window.selectedColor و window.selectedSize] ---
+    // --- [تم إزالة كود إزالة التحديد بصرياً من الأزرار] ---
+
+    // 4. تحديث الواجهة
+    renderModalSelectionsList(); // تحديث القائمة أسفل المودال
+    updateModalUI();             // تحديث السعر الإجمالي بناءً على كل المضاف
+    
+    // 5. إشعار نجاح خفيف
+    showToast(`تم إضافة ${numToAdd} قطعة بالخيارات المختارة ✅`, "success");
+}
+function renderModalSelectionsList() {
+    const listContainer = document.getElementById('modalSelectionsList');
+    if (!listContainer) return;
+
+    listContainer.innerHTML = modalTempSelections.map((item, index) => {
+        // فحص هل نحتاج إظهار اللون والمقاس في القائمة أم لا
+        const showColor = item.color && item.color !== "افتراضي";
+        const showSize = item.size && item.size !== "افتراضي";
+
+        return `
+        <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/10 mb-2 animate-fadeIn">
+            <div class="flex items-center gap-3">
+                ${showColor ? `
+                    <span class="w-4 h-4 rounded-full border border-white/20" style="background: ${item.color.startsWith('#') ? item.color : 'transparent'}">
+                        ${!item.color.startsWith('#') ? `<span class="text-[8px] text-white flex items-center justify-center h-full">${item.color}</span>` : ''}
+                    </span>
+                ` : ''}
+                
+                <span class="text-white text-xs font-bold uppercase">
+                    ${showSize ? `المقاس: ${item.size}` : (showColor ? '' : 'المنتج الأساسي')}
+                </span>
+            </div>
+            <button onclick="removeTempItem(${index})" class="text-red-500 hover:text-red-400 p-2 transition-colors">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+    `;
+    }).join('');
+}
+
+    // دالة لحذف قطعة معينة من القائمة المؤقتة
+    function removeTempItem(index) {
+        modalTempSelections.splice(index, 1); // حذف العنصر
+        const qtyInput = document.getElementById('varQty');
+        if (qtyInput) qtyInput.value = modalTempSelections.length || 1; // تحديث العداد
+
+        updateModalUI(); // إعادة حساب السعر والعروض
+        renderModalSelectionsList(); // إعادة رسم القائمة
+    }
+
+    // 1. دالة الحساب الذكية: تحسب السعر الأصلي والنهائي بدقة
+    function calculateBestPrice(totalQty, product) {
+    // 1. حماية أولية: إذا الكمية 0 أو المنتج ناقص
+    if (!product || totalQty <= 0) return { final: 0, activatedOffers: [] };
+
+    const discountPercent = parseFloat(product.discount) || 0;
+    const originalPrice = parseFloat(product.price) || 0;
+
+    // تأكد من وجود سعر أساسي، وإذا لم يوجد نضع 0 بدل Infinity
+    const baseUnitPrice = originalPrice * (1 - discountPercent / 100);
+
+    // 2. بناء الخيارات مع التأكد من وجود "خيار الحبة الواحدة" دائماً
+    let options = [{ id: 'base', qty: 1, price: baseUnitPrice }];
+
+    if (product.bulk_offers && Array.isArray(product.bulk_offers)) {
+        product.bulk_offers.forEach(offer => {
+            let offPrice = parseFloat(offer.price) || 0;
+            if (discountPercent > 0) offPrice *= (1 - discountPercent / 100);
+            if (offPrice > 0) {
+                options.push({ id: offer.id || offer.qty, qty: parseInt(offer.qty), price: offPrice });
+            }
+        });
+    }
+
+    const memo = { 0: { price: 0, offers: [] } };
+
+    // 3. المحرك مع "حماية من الـ Infinity"
+    for (let i = 1; i <= totalQty; i++) {
+        let min = Infinity;
+        let bestPath = [];
+
+        for (let opt of options) {
+            if (i >= opt.qty) {
+                let prev = memo[i - opt.qty];
+                if (prev && prev.price !== Infinity) {
+                    let currentPrice = opt.price + prev.price;
+                    if (currentPrice < min) {
+                        min = currentPrice;
+                        bestPath = [opt.id, ...prev.offers];
+                    }
+                }
+            }
+        }
+        memo[i] = { price: min, offers: bestPath };
+    }
+
+    const finalPrice = memo[totalQty].price === Infinity ? (totalQty * baseUnitPrice) : memo[totalQty].price;
+
+    return {
+        final: Math.round(finalPrice) || 0, // لضمان عدم ظهور NaN
+        activatedOffers: memo[totalQty].offers || []
+    };
+} // 2. دالة تحديث واجهة المودال (المسؤولة عن إظهار الأسعار بشكل صحيح)
+    function updateModalUI() {
+    const product = activeProduct;
+    if (!product) return;
+
+    const qtyInput = document.getElementById('varQty');
+    const currentSpinnerQty = parseInt(qtyInput.value) || 1;
+
+    // 1. فحص هل المستخدم أكمل الاختيارات (لون/مقاس) إذا كانت مطلوبة
+    const colorCont = document.getElementById('colorContainer');
+    const sizeCont = document.getElementById('sizeContainer');
+    const needsColor = colorCont && !colorCont.classList.contains('hidden');
+    const needsSize = sizeCont && !sizeCont.classList.contains('hidden');
+
+    // شرط "هل الاختيار مكتمل؟"
+    const isSelectionComplete = (!needsColor || selectedColor) && (!needsSize || selectedSize);
+
+    // 2. حساب الكمية الإجمالية (فقط إذا اكتمل الاختيار نجمعها مع السعر الكلي)
+    let totalQtyForPrice = modalTempSelections.reduce((sum, item) => sum + (parseInt(item.qty) || 1), 0);
+    if (isSelectionComplete) {
+        totalQtyForPrice += currentSpinnerQty;
+    }
+
+    // 3. حساب سعر "القطعة الواحدة" (للعرض في الجزء العلوي)
+    const originalPrice = parseFloat(product.price) || 0;
+    const discountPercent = parseFloat(product.discount) || 0;
+    const unitPriceAfterDiscount = Math.round(originalPrice * (1 - discountPercent / 100));
+
+    // تحديث "سعر القطعة الواحدة" (الذي كان يظهر 0)
+    const modalPriceEl = document.getElementById('modalPrice');
+    if (modalPriceEl) {
+        modalPriceEl.innerText = `${unitPriceAfterDiscount} دج`;
+    }
+
+    // تحديث السعر القديم والخصم (إذا وجد)
+    const oldPriceEl = document.getElementById('modalOldPrice');
+    const savingsTagEl = document.getElementById('modalSavingsTag');
+    if (discountPercent > 0) {
+        if (oldPriceEl) {
+            oldPriceEl.innerText = `${Math.round(originalPrice)} دج`;
+            oldPriceEl.classList.remove('hidden');
+        }
+        if (savingsTagEl) {
+            savingsTagEl.innerText = `-${discountPercent}%`;
+            savingsTagEl.classList.remove('hidden');
+        }
+    } else {
+        if (oldPriceEl) oldPriceEl.classList.add('hidden');
+        if (savingsTagEl) savingsTagEl.classList.add('hidden');
+    }
+
+    // 4. حساب المجموع الكلي الذكي (سيكون 0 إذا لم يتم اختيار أي شيء)
+    const priceData = calculateBestPrice(totalQtyForPrice, product);
+
+    // تحديث "المجموع الإجمالي"
+    const modalFinalTotalEl = document.getElementById('modalFinalTotal');
+    if (modalFinalTotalEl) {
+        // إذا لم يختر المستخدم شيئاً ولم تكن هناك طلبات سابقة، المجموع 0
+        modalFinalTotalEl.innerText = `${totalQtyForPrice > 0 ? priceData.final : 0} دج`;
+    }
+
+    // 5. تحديث شبكة العروض (Highlighting)
+    updateOffersStatusUI(priceData.activatedOffers, product);
+}
+
+// دالة فرعية لتنظيف كود تحديث شبكة العروض
+function updateOffersStatusUI(activatedOffers, product) {
+    const grid = document.getElementById('offersStatusGrid');
+    if (!grid || !product.bulk_offers) return;
+
+    // ترتيب العروض حسب الكمية لضمان شكل منظم
+    const sortedOffers = [...product.bulk_offers].sort((a, b) => a.qty - b.qty);
+
+    grid.innerHTML = sortedOffers.map(offer => {
+        // التحقق هل هذا العرض جزء من "المسار الأرخص" الذي اختارته الخوارزمية؟
+        const isActive = (activatedOffers || []).includes(offer.id || offer.qty);
+        
+        const discountPercent = parseFloat(product.discount) || 0;
+        const finalOfferPrice = Math.round(parseFloat(offer.price) * (1 - discountPercent / 100));
+
+        return `
+        <div class="relative p-3 rounded-2xl border-2 transition-all duration-500 transform ${
+            isActive 
+            ? 'border-orange-500 bg-orange-500/10 scale-105 shadow-lg shadow-orange-500/20' 
+            : 'border-white/5 bg-white/5 opacity-40 scale-100'
+        }">
+            ${isActive ? `
+                <div class="absolute -top-1 -right-1 bg-orange-500 text-white text-[8px] font-black px-2 py-1 rounded-bl-lg animate-pulse">
+                    مفعّل
+                </div>
+            ` : ''}
+
+            <div class="text-[10px] font-black uppercase tracking-tighter ${isActive ? 'text-orange-500' : 'text-slate-500'} mb-1">
+                باقة ${offer.qty} قطع
+            </div>
+            
+            <div class="text-xl font-black text-white leading-none">
+                ${finalOfferPrice} <span class="text-[10px] opacity-50">دج</span>
+            </div>
+
+            ${isActive 
+                ? `<div class="text-[9px] text-orange-400 mt-2 font-bold italic">✓ أفضل توفير لك</div>` 
+                : `<div class="text-[9px] text-slate-600 mt-2 font-medium">أضف ${offer.qty} قطعة لتوفير أكثر</div>`
+            }
+        </div>`;
+    }).join('');
+}  // دالة فرعية لتحديث شكل بطاقات العروض فقط
+
+    // 3. تحديث حالة شبكة العروض (تلوين العرض المحقق فقط)
+    function updateOffersStatus(currentQty, product) {
+        const grid = document.getElementById('offersStatusGrid');
+        if (!grid || !product.bulk_offers) return;
+
+        const sorted = [...product.bulk_offers].sort((a, b) => a.qty - b.qty);
+
+        grid.innerHTML = sorted.map(off => {
+            const isActive = currentQty >= off.qty; // يتفعل فقط إذا أضفت عدد قطع كافٍ
+            return `
+            <div class="border-2 rounded-2xl p-3 transition-all ${isActive ? 'border-orange-500 bg-orange-500/10 ring-1 ring-orange-500' : 'border-white/10 bg-white/5'}">
+                <div class="flex justify-between items-center mb-1">
+                    <span class="text-[10px] font-bold ${isActive ? 'text-orange-500' : 'text-slate-400'} uppercase">باقة ${off.qty} قطع</span>
+                </div>
+                <div class="text-lg font-black text-white">${off.price} <span class="text-[10px]">دج</span></div>
+            </div>
+        `;
+        }).join('');
+    }
+
+    // --- 6. الفلاتر والبحث ---
+    function populateCategoryFilter() {
+        const filterSelect = document.getElementById('categoryFilter');
+        const mobileList   = document.getElementById('mobileCategoryList');
+        const chipContainer = document.getElementById('categoryChips');
+        if (!categories) return;
+
+        // 1. Hidden Select (for logic sync)
+        if (filterSelect) {
+            filterSelect.innerHTML = `<option value="all">all</option>` +
+                categories.map(cat => `<option value="${cat.id}">${cat.name}</option>`).join('');
+        }
+
+        // 2. Mobile List (Sidebar)
+        if (mobileList) {
+            mobileList.innerHTML = `<button onclick="setCategoryFilter('all'); toggleMobileMenu();" class="w-full text-right p-3 rounded-xl bg-slate-50 dark:bg-white/5 text-sm font-bold text-slate-700 dark:text-slate-300">كل الفئات</button>` +
+                categories.map(cat => `
+                    <button onclick="setCategoryFilter('${cat.id}'); toggleMobileMenu();" class="w-full text-right p-3 rounded-xl hover:bg-pink-50 dark:hover:bg-pink-500/10 text-sm font-bold text-slate-600 dark:text-slate-400">
+                        ${cat.name}
+                    </button>
+                `).join('');
+        }
+
+        // 3. New Category Chips (Dashboard)
+        if (chipContainer) {
+            const allLabel = window.mgr.t('all_categories');
+            chipContainer.innerHTML = `
+                <button onclick="setCategoryFilter('all')" data-cat-id="all" class="category-chip chip-active whitespace-nowrap px-6 py-3 rounded-full text-xs font-black transition-all border border-pink-500/20 shadow-lg">
+                    <span>${allLabel}</span>
+                </button>
+            ` + categories.map(cat => `
+                <button onclick="setCategoryFilter('${cat.id}')" data-cat-id="${cat.id}" class="category-chip chip-inactive whitespace-nowrap px-6 py-3 rounded-full text-xs font-black transition-all border border-transparent shadow-sm hover:border-pink-500/30">
+                    <span>${cat.name}</span>
+                </button>
+            `).join('');
+        }
+    }
+
+    function setCategoryFilter(id) {
+        // 1. Update hidden select for existing logic
+        const selectEl = document.getElementById('categoryFilter');
+        if (selectEl) selectEl.value = id;
+
+        // 2. Update Chip UI
+        document.querySelectorAll('.category-chip').forEach(btn => {
+            if (btn.getAttribute('data-cat-id') === String(id)) {
+                btn.classList.remove('chip-inactive');
+                btn.classList.add('chip-active', 'shadow-lg');
+            } else {
+                btn.classList.add('chip-inactive');
+                btn.classList.remove('chip-active', 'shadow-lg');
+            }
+        });
+
+        // 3. Trigger Filter
+        filterProducts();
+    }
+
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('mobileOverlay');
+        if (!menu || !overlay) return;
+
+        const isOpen = !menu.classList.contains('translate-x-full');
+        if (isOpen) {
+            menu.classList.add('translate-x-full');
+            overlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        } else {
+            menu.classList.remove('translate-x-full');
+            overlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    window.toggleReviewsDropdown = function() {
+    const dropdown = document.getElementById('reviewsDropdown');
+    const chevron = document.getElementById('reviewChevron');
+    const toggleText = document.getElementById('reviewToggleText');
+
+    if (!dropdown) return;
+
+    // التحقق إذا كانت القائمة مفتوحة أم مغلقة
+    const isOpen = dropdown.style.maxHeight !== '0px' && dropdown.style.maxHeight !== '';
+
+    if (isOpen) {
+        // إغلاق القائمة
+        dropdown.style.maxHeight = '0px';
+        chevron.style.transform = 'rotate(0deg)';
+        toggleText.innerText = window.mgr?.currentLang === 'ar' ? "عرض التعليقات" : "Show Reviews";
+    } else {
+        // فتح القائمة (القيمة 500px كافية لاستيعاب التعليقات مع السكرول)
+        dropdown.style.maxHeight = '500px'; 
+        chevron.style.transform = 'rotate(180deg)';
+        toggleText.innerText = window.mgr?.currentLang === 'ar' ? "إخفاء التعليقات" : "Hide Reviews";
+    }
+};
+
+window.fetchAndRenderReviews = async function(productId) {
+    console.log("%c 🚀 بدء تشغيل دالة التقييمات للمنتج رقم: " + productId, "color: #eab308; font-weight: bold;");
+
+    const reviewsSection = document.getElementById('modalReviewsSection');
+    const ratingForm = document.getElementById('ratingForm');
+    const globalContainer = document.getElementById('reviewsGlobalContainer');
+
+    // --- فحص الوجود ---
+    if (!reviewsSection) console.error("❌ خلل تسمية: لم أجد modalReviewsSection");
+    if (!ratingForm) console.error("❌ خلل تسمية: لم أجد ratingForm");
+    if (!globalContainer) console.error("❌ خلل تسمية: لم أجد reviewsGlobalContainer");
+
+    if (!reviewsSection || !ratingForm) return;
+
+    // --- محاولة الإظهار ---
+    console.log("🛠️ أحاول إزالة hidden عن الفُورم...");
+    reviewsSection.classList.remove('hidden');
+    reviewsSection.style.display = 'block';
+    ratingForm.classList.remove('hidden');
+    ratingForm.style.display = 'block';
+
+    try {
+        console.log("📡 جاري الاتصال بـ Supabase...");
+        const { data: product, error } = await supabase
+            .from('products')
+            .select('show_ratings, reviews(*)')
+            .eq('id', String(productId))
+            .single();
+
+        if (error) {
+            console.error("❌ خطأ من سوبابيس:", error.message);
+            return;
+        }
+
+        console.log("✅ البيانات وصلت بنجاح، حالة العرض:", product.show_ratings);
+
+        const isVisible = product.show_ratings !== false;
+        
+        if (isVisible && product.reviews?.length > 0) {
+            console.log("✨ إظهار قسم النتائج (آراء المشترين)");
+            globalContainer.classList.remove('hidden');
+            globalContainer.style.display = 'block';
+            // هنا تضع كود الرسم (Render)
+        } else {
+            console.log("🚫 إخفاء قسم النتائج (بأمر المدير أو لا توجد بيانات)");
+            globalContainer.classList.add('hidden');
+            globalContainer.style.display = 'none';
+        }
+
+    } catch (e) {
+        console.error("💥 خطأ غير متوقع في الكود:", e);
+    }
+};
+// دالة مساعدة لرسم النجوم (تستخدم في التعليقات)
+
+// دالة مساعدة لتحديث النجوم العلوية في المودال
+function updateRatingUI(avg, count) {
+    const starsRow = document.getElementById('modalStarsRow');
+    const ratingText = document.getElementById('modalRatingText');
+    
+    if (ratingText) ratingText.innerText = `(${avg} / 5) - ${count} تقييم`;
+    
+    if (starsRow) {
+        starsRow.innerHTML = generateStars(Math.round(avg));
+    }
+}
+
+// دالة مساعدة لرسم النجوم بناءً على الرقم
+function generateStars(n) {
+    let html = '';
+    for (let i = 1; i <= 5; i++) {
+        html += `<i class="fa${i <= n ? 's' : 'r'} fa-star"></i>`;
+    }
+    return html;
+}
+
+    function filterProductsManual(val) {
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.value = val;
+            filterProducts();
+        }
+    }
+
+    function filterProducts() {
+    // 1. جلب نص البحث والفئة المختارة
+    const searchTerm = document.getElementById('searchInput')?.value.toLowerCase().trim() || "";
+    const selectedCategoryId = document.getElementById('categoryFilter')?.value || "all";
+
+    // 2. تصفية المنتجات (الاسم + الوصف + الفئة)
+    const filtered = allProducts.filter(p => {
+        const name = (window.mgr ? window.mgr.tDynamic(p, 'name') : p.name || "").toLowerCase();
+        const desc = (window.mgr ? window.mgr.tDynamic(p, 'description') : p.description || "").toLowerCase();
+        
+        const matchesSearch = name.includes(searchTerm) || desc.includes(searchTerm);
+        
+        // مقارنة ID الفئة (نص بنص لضمان الدقة مع Supabase)
+        const pCatId = p.category_id || p.categoryId;
+        const matchesCategory = (selectedCategoryId === "all") || (String(pCatId) === String(selectedCategoryId));
+
+        return matchesSearch && matchesCategory;
+    });
+
+    // 3. تحديث الواجهة
+    renderProducts(filtered);
+
+    // 4. إظهار رسالة "لا يوجد نتائج" إذا كانت القائمة فارغة
+    const noMsg = document.getElementById('noProductsMsg');
+    const grid = document.getElementById('productsGrid');
+    if (noMsg && grid) {
+        const isEmpty = filtered.length === 0;
+        noMsg.classList.toggle('hidden', !isEmpty);
+        grid.classList.toggle('hidden', isEmpty);
+    }
+}
+    // --- 7. دوال فتح وإدارة نافذة المنتج (Modal) المعدلة ---
+    // --- 7. دوال فتح وإدارة نافذة المنتج (Modal) المعدلة --
+// ربط العداد بالتحديث اللحظي للعروض والسعر
+document.addEventListener('DOMContentLoaded', () => {
+    const qtyInput = document.getElementById('varQty');
+    if (qtyInput) {
+        qtyInput.addEventListener('input', () => {
+            if (typeof updateModalUI === 'function') updateModalUI();
+        });
+    }
+});
+
+
+  function openProduct(id) {
+    // 1. جلب المنتج من المصفوفة العامة وتصفير الحالة
+    selectedColor = ""; 
+    selectedSize = "";
+    modalTempSelections = [];
+    
+    activeProduct = allProducts.find(p => String(p.id) === String(id));
+    if (!activeProduct) return console.error("المنتج غير موجود");
+
+    // 2. الربط مع الفئة
+    const catObj = categories.find(c => String(c.id) === String(activeProduct.category_id));
+    const categoryName = catObj ? catObj.name : "عام";
+
+    // 3. ضبط العداد والواجهة الابتدائية
+    const qtyInput = document.getElementById('varQty');
+    if (qtyInput) {
+        qtyInput.value = 1;
+        qtyInput.oninput = function() {
+            updateModalUI(); 
+        };
+    }
+
+    const selectionsListDiv = document.getElementById('modalSelectionsList');
+    if (selectionsListDiv) selectionsListDiv.innerHTML = "";
+
+    // 4. تعبئة النصوص الأساسية
+    const name = window.mgr ? window.mgr.tDynamic(activeProduct, 'name') : activeProduct.name;
+    const desc = window.mgr ? window.mgr.tDynamic(activeProduct, 'description') : activeProduct.description;
+
+    document.getElementById('modalTitle').innerText = name;
+    document.getElementById('modalDesc').innerText = desc || (window.mgr.currentLang === 'ar' ? "لا توجد تفاصيل إضافية." : "No additional details.");
+    document.getElementById('modalCategory').innerText = categoryName;
+
+   window.addTempSelection = function() {
+    const qtyInput = document.getElementById('varQty');
+    const currentQty = parseInt(qtyInput.value) || 1;
+    const colorCont = document.getElementById('colorContainer');
+    const sizeCont = document.getElementById('sizeContainer');
+    
+    const needsColor = colorCont && !colorCont.classList.contains('hidden');
+    const needsSize = sizeCont && !sizeCont.classList.contains('hidden');
+
+    // 1. التأكد من الاختيار
+    if ((needsColor && !selectedColor) || (needsSize && !selectedSize)) {
+        return showToast(window.mgr.currentLang === 'ar' ? "يرجى اختيار اللون والمقاس أولاً" : "Please select color and size first", "error");
+    }
+
+    const colorKey = selectedColor || "افتراضي";
+    const sizeKey = selectedSize || "افتراضي";
+
+    // 2. 🔥 فحص المخزون الفعلي من stock_data 🔥
+    if (activeProduct && activeProduct.stock_data) {
+        const stockEntry = activeProduct.stock_data.find(item => 
+            (item.color?.trim() === colorKey) && 
+            (item.size?.trim() === sizeKey)
+        );
+
+        if (!stockEntry) {
+            return showToast("هذا المزيج غير متوفر حالياً", "error");
+        }
+
+        // حساب الكمية المضافة مسبقاً لنفس النوع في القائمة المؤقتة
+        const alreadyAdded = modalTempSelections
+            .filter(item => item.color === colorKey && item.size === sizeKey)
+            .reduce((sum, item) => sum + item.qty, 0);
+
+        const totalRequested = alreadyAdded + currentQty;
+
+        if (totalRequested > stockEntry.qty) {
+            const remaining = stockEntry.qty - alreadyAdded;
+            const msg = window.mgr.currentLang === 'ar' 
+                ? (remaining > 0 ? `المتبقي في المخزون ${remaining} قطع فقط` : "لقد أضفت كل الكمية المتوفرة بالفعل")
+                : (remaining > 0 ? `Only ${remaining} items left in stock` : "You already added all available stock");
+            return showToast(msg, "error");
+        }
+    }
+
+    // 3. الإضافة للمصفوفة إذا نجح الفحص
+    const existingIndex = modalTempSelections.findIndex(item => item.color === colorKey && item.size === sizeKey);
+
+    if (existingIndex > -1) {
+        modalTempSelections[existingIndex].qty += currentQty; 
+    } else {
+        modalTempSelections.push({ color: colorKey, size: sizeKey, qty: currentQty }); 
+    }
+
+    // 4. تصفير الواجهة وتحديثها
+    qtyInput.value = 1; 
+    renderTempSelections(); 
+    updateModalUI();
+    
+    // إشعار نجاح بسيط
+    showToast(window.mgr.currentLang === 'ar' ? "تمت الإضافة بنجاح" : "Added successfully", "success");
+};
+
+    window.renderTempSelections = function() {
+        if (!selectionsListDiv) return;
+        selectionsListDiv.innerHTML = modalTempSelections.map((item, index) => `
+            <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl mb-2 border border-white/10 animate-fade-in">
+                <div class="flex items-center gap-3">
+                    <span class="bg-pink-500 text-white text-[10px] font-black px-2 py-1 rounded-lg">×${item.qty}</span>
+                    <span class="text-[11px] text-white font-bold">
+                        ${item.color !== 'default' ? item.color : ''} ${item.size !== 'default' ? item.size : ''}
+                    </span>
+                </div>
+                <button onclick="removeTempSelection(${index})" class="text-red-400/50 hover:text-red-400 p-1">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        `).join('');
+    };
+
+    window.removeTempSelection = function(index) {
+        modalTempSelections.splice(index, 1);
+        renderTempSelections();
+        updateModalUI();
+    };
+
+// أظهر السكشن الرئيسي دائماً ليتمكن الزبون من التقييم
+const reviewsSection = document.getElementById('modalReviewsSection');
+if (reviewsSection) {
+    reviewsSection.classList.remove('hidden');
+}
+
+// استدعاء الدالة دائماً لجلب البيانات وفحص حالة "العرض" بالداخل
+if (typeof window.fetchAndRenderReviews === 'function') {
+    window.fetchAndRenderReviews(activeProduct.id);
+}
+
+// أما ملخص النجوم العلوي (Summary) فيمكنك تركه تحت الشرط إذا أردت
+if (activeProduct.show_ratings !== false) {
+    document.getElementById('modalRatingSummary')?.classList.remove('hidden');
+} else {
+    document.getElementById('modalRatingSummary')?.classList.add('hidden');
+}
+
+    // 6. ضبط الصور والجاليري
+    const mainImg = document.getElementById('modalMainImg');
+    const thumbGallery = document.getElementById('thumbGallery');
+    mainImg.src = activeProduct.images?.[0] || 'placeholder.png';
+
+    if (activeProduct.images && activeProduct.images.length > 1) {
+        thumbGallery.innerHTML = activeProduct.images.map(img => `
+            <div onclick="document.getElementById('modalMainImg').src='${img}'" class="w-16 h-16 rounded-xl border-2 border-white/10 overflow-hidden cursor-pointer hover:border-orange-500 transition-all flex-shrink-0 bg-white/5 p-1">
+                <img src="${img}" class="w-full h-full object-contain rounded-lg">
+            </div>
+        `).join('');
+        thumbGallery.classList.remove('hidden');
+    } else {
+        thumbGallery.innerHTML = "";
+        thumbGallery.classList.add('hidden');
+    }
+
+    // 7. تحديث السعر والواجهة وفتح المودال
+    updateModalUI();
+    if (typeof updateVariantPickers === "function") updateVariantPickers(catObj);
+    
+    // فتح المودال بعد تجهيز كل شيء
+    if (typeof openModal === "function") openModal('productModal');
+}
+
+    // دالة تجلب الألوان الفريدة من بيانات المخزن
+    function generateColorOptions() {
+        if (!activeProduct || !activeProduct.stock_data) return '<option value="افتراضي">اللون الافتراضي</option>';
+
+        const colors = [...new Set(activeProduct.stock_data.map(s => s.color))];
+        if (colors.length === 1 && colors[0] === 'افتراضي') return '<option value="افتراضي">اللون الافتراضي</option>';
+
+        return `<option value="">اختر اللون</option>` +
+            colors.map(c => `<option value="${c}">${c}</option>`).join('');
+    }
+// دالة تحديد النجوم
+let currentModalRating = 5;
+window.setModalRating = function(n) {
+    currentModalRating = n;
+    const stars = document.querySelectorAll('#starSelector i');
+    stars.forEach((s, idx) => {
+        if (idx < n) {
+            s.classList.replace('text-slate-600', 'text-yellow-400');
+            s.classList.add('fas'); s.classList.remove('far');
+        } else {
+            s.classList.replace('text-yellow-400', 'text-slate-600');
+            s.classList.add('far'); s.classList.remove('fas');
+        }
+    });
+};
+
+// دالة إرسال التقييم لجدول (reviews)
+window.submitReview = async function() {
+    if (!activeProduct) return;
+
+    // 1. جلب البيانات من الواجهة الملكية الجديدة
+    const rName = document.getElementById('reviewerName')?.value.trim() || (window.mgr?.currentLang === 'ar' ? "زبون" : "Customer");
+    const comment = document.getElementById('reviewComment')?.value.trim();
+    // نستخدم المتغير currentModalRating الذي يتم تحديثه عند الضغط على النجوم
+    const rating = typeof currentModalRating !== 'undefined' ? currentModalRating : 5;
+
+    // 2. التحقق من المدخلات
+    if (!comment) {
+        return showToast(window.mgr?.currentLang === 'ar' ? "يرجى كتابة رأيك الفاخر أولاً" : "Please write your review first", "error");
+    }
+
+    try {
+        // تعطيل الزر مؤقتاً لمنع التكرار
+        const btn = document.querySelector('button[onclick="submitReview()"]');
+        if (btn) btn.disabled = true;
+
+        // 3. الإرسال إلى Supabase (تأكد أن اسم الجدول reviews)
+        const { error } = await supabase.from('reviews').insert([{
+            product_id: String(activeProduct.id),
+            customer_name: rName,
+            rating: parseInt(rating),
+            comment: comment
+        }]);
+
+        if (error) throw error;
+
+        // 4. النجاح وتصفير النموذج
+        showToast(window.mgr?.currentLang === 'ar' ? "تم قبول تقييمك الملكي! ✅" : "Review submitted! ✅");
+        
+        if (document.getElementById('reviewerName')) document.getElementById('reviewerName').value = '';
+        if (document.getElementById('reviewComment')) document.getElementById('reviewComment').value = '';
+        
+        // إعادة النجوم للوضع الافتراضي (5 نجوم)
+        if (typeof window.setModalRating === 'function') window.setModalRating(5);
+        
+        // 5. تحديث قائمة التقييمات المعروضة فوراً
+        if (typeof window.fetchAndRenderReviews === 'function') {
+            window.fetchAndRenderReviews(activeProduct.id);
+        }
+
+    } catch (err) {
+        console.error("خطأ في نظام التقييم:", err);
+        showToast(window.mgr?.currentLang === 'ar' ? "عذراً، فشل إرسال التقييم" : "Failed to submit review", "error");
+    } finally {
+        // إعادة تفعيل الزر
+        const btn = document.querySelector('button[onclick="submitReview()"]');
+        if (btn) btn.disabled = false;
+    }
+};
+// تعريف المتغيرات العامة لنظام التقييم
+
+// دالة جلب التقييمات من قاعدة البيانات وعرضها
+  // دالة تجلب المقاسات الفريدة من بيانات المخزن
+    function generateSizeOptions() {
+        if (!activeProduct || !activeProduct.stock_data) return '<option value="افتراضي">المقاس الافتراضي</option>';
+
+        const sizes = [...new Set(activeProduct.stock_data.map(s => s.size))];
+        if (sizes.length === 1 && sizes[0] === 'افتراضي') return '<option value="افتراضي">المقاس الافتراضي</option>';
+
+        return `<option value="">المقاس</option>` +
+            sizes.map(s => `<option value="${s}">${s}</option>`).join('');
+    }
+
+function updateVariantPickers() {
+    const colorPicker = document.getElementById('colorPicker');
+    const sizePicker = document.getElementById('sizePicker');
+    
+    if (!activeProduct || !activeProduct.stock_data) return;
+    const stock = activeProduct.stock_data;
+
+    // 1. التعامل مع الألوان (تختفي إذا لم تتوفر مع المقاس المختار)
+    const availableColors = [...new Set(stock
+        .filter(item => !window.selectedSize || window.selectedSize === "افتراضي" || item.size === window.selectedSize)
+        .filter(item => item.qty > 0)
+        .map(item => item.color?.trim())
+        .filter(c => c && c !== "افتراضي")
+    )];
+
+    // 2. التعامل مع المقاسات (تختفي إذا لم تتوفر مع اللون المختار)
+    const availableSizes = [...new Set(stock
+        .filter(item => !window.selectedColor || window.selectedColor === "افتراضي" || item.color === window.selectedColor)
+        .filter(item => item.qty > 0)
+        .map(item => item.size?.trim())
+        .filter(s => s && s !== "افتراضي")
+    )];
+
+    // 3. تحديث واجهة الألوان (فقط للعناصر الموجودة)
+    if (colorPicker && availableColors.length > 0) {
+        document.getElementById('colorContainer').classList.remove('hidden');
+        colorPicker.innerHTML = availableColors.map(c => {
+            const isSelected = window.selectedColor === c;
+            const isHex = c.startsWith('#');
+            return `
+            <div onclick="selectColor(this, '${c}')" 
+                 class="w-10 h-10 rounded-full border-2 transition-all cursor-pointer flex items-center justify-center relative 
+                 ${isSelected ? 'border-orange-500 scale-110 ring-2 ring-orange-500' : 'border-white/10'}" 
+                 style="background-color: ${isHex ? c : 'transparent'};">
+                 ${!isHex ? `<span class="text-[9px] text-white font-bold">${c}</span>` : ''}
+                 ${isSelected ? '<i class="fas fa-check text-white text-[10px] absolute fa-check"></i>' : ''}
+            </div>`;
+        }).join('');
+    }
+
+    // 4. تحديث واجهة المقاسات
+    if (sizePicker && availableSizes.length > 0) {
+        document.getElementById('sizeContainer').classList.remove('hidden');
+        sizePicker.innerHTML = availableSizes.map(s => {
+            const isSelected = window.selectedSize === s;
+            return `
+            <div onclick="selectSize(this, '${s}')" 
+                 class="px-4 py-2 rounded-xl border-2 transition-all cursor-pointer text-sm font-bold 
+                 ${isSelected ? 'border-orange-500 bg-orange-500/10 text-orange-500' : 'border-white/10 text-slate-400'}">
+                 ${s}
+            </div>`;
+        }).join('');
+    }
+
+    // 5. فحص المخزون الكلي لتعطيل الزر إذا فرغ المنتج تماماً
+    const totalQty = stock.reduce((acc, curr) => acc + curr.qty, 0);
+    const orderBtn = document.querySelector('button[onclick="submitOrder()"]') || document.querySelector('button[onclick="addTempSelection()"]');
+    
+    if (totalQty <= 0 && orderBtn) {
+        orderBtn.disabled = true;
+        orderBtn.classList.add('opacity-50', 'cursor-not-allowed');
+        orderBtn.innerHTML = `<span>نفذت الكمية بالكامل</span> <i class="fas fa-box-open"></i>`;
+    }
+}
+// استخدام window هنا يضمن أن الدالة قوية ولا تتأثر بأي كود آخر
+window.selectColor = function(element, val) {
+    // 1. حفظ القيمة فوراً
+    window.selectedColor = val;
+    
+    // 2. تغيير الشكل مباشرة على العنصر الذي تم الضغط عليه (التحديد الفوري)
+    document.querySelectorAll('#colorPicker > div').forEach(el => {
+        el.classList.remove('border-orange-500', 'scale-110', 'ring-2', 'ring-orange-500');
+        el.classList.add('border-white/10');
+        const check = el.querySelector('.fa-check');
+        if (check) check.remove();
+    });
+
+    element.classList.remove('border-white/10');
+    element.classList.add('border-orange-500', 'scale-110', 'ring-2', 'ring-orange-500');
+    element.insertAdjacentHTML('beforeend', '<i class="fas fa-check text-white text-[10px] absolute fa-check"></i>');
+
+  if (typeof updateModalUI === "function") {
+    setTimeout(() => { 
+        updateModalUI(); 
+        updateVariantPickers(); // أضف هذا السطر هنا
+    }, 50);
+}
+};
+
+window.selectSize = function(element, val) {
+    // 1. حفظ القيمة فوراً
+    window.selectedSize = val;
+    
+    // 2. التحديد الفوري للمقاس
+    document.querySelectorAll('#sizePicker div').forEach(el => {
+        el.classList.remove('border-orange-500', 'bg-orange-500/10', 'text-orange-500');
+        el.classList.add('border-white/10', 'text-slate-400');
+    });
+
+    element.classList.remove('border-white/10', 'text-slate-400');
+    element.classList.add('border-orange-500', 'bg-orange-500/10', 'text-orange-500');
+    
+    // 3. تأخير تحديث الواجهة
+  if (typeof updateModalUI === "function") {
+    setTimeout(() => { 
+        updateModalUI(); 
+        updateVariantPickers(); // وأضف هذا السطر هنا
+    }, 50);
+}
+};
+   function addVariantToCart() {
+    const qtyInput = document.getElementById('varQty');
+    const qty = parseInt(qtyInput?.value) || 1;
+    
+    const colorCont = document.getElementById('colorContainer');
+    const sizeCont = document.getElementById('sizeContainer');
+    
+    // فحص هل القسم ظاهر للمستخدم أم مخفي
+    const isColorRequired = colorCont && !colorCont.classList.contains('hidden');
+    const isSizeRequired = sizeCont && !sizeCont.classList.contains('hidden');
+
+    // التحقق الصارم من القيم المسجلة في window
+    if (isColorRequired && (!window.selectedColor || window.selectedColor === "")) {
+        return showToast("⚠️ من فضلك اختر اللون أولاً!", "error");
+    }
+    if (isSizeRequired && (!window.selectedSize || window.selectedSize === "")) {
+        return showToast("⚠️ من فضلك اختر المقاس أولاً!", "error");
+    }
+
+    const newItem = {
+        cartId: Date.now() + Math.random(), 
+        id: activeProduct.id,
+        name: activeProduct.name,
+        price: activeProduct.currentFinalPrice || activeProduct.price,
+        color: isColorRequired ? window.selectedColor : "افتراضي",
+        size: isSizeRequired ? window.selectedSize : "افتراضي",
+        qty: qty,
+        image: activeProduct.images?.[0] || '',
+        isOffer: false
+    };
+
+    if (!window.currentCart) window.currentCart = [];
+    window.currentCart.push(newItem);
+    
+    localStorage.setItem('cart', JSON.stringify(window.currentCart));
+    
+    // تحديث الواجهة وإغلاق المودال
+    updateSidebarCart();
+    closeModal('productModal');
+    openSidebar();
+    
+    // تصفير القيم للعملية القادمة
+    window.selectedColor = "";
+    window.selectedSize = "";
+    showToast("تمت الإضافة للسلة بنجاح");
+}
+   function removeFromCartById(cartId) {
+    // 1. جلب البيانات من المخزن المحلي
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // 2. الفلترة (استخدام != بدلاً من !== لضمان مطابقة النص والرقم)
+    const newCart = cart.filter(item => item.cartId != cartId);
+    
+    // 3. تحديث الذاكرة
+    window.currentCart = newCart;
+    localStorage.setItem('cart', JSON.stringify(newCart));
+    
+    // 4. تحديث الواجهة فوراً
+    if (typeof updateSidebarCart === "function") {
+        updateSidebarCart();
+    }
+
+    if (typeof showToast === "function") showToast("تم حذف المنتج بنجاح ✅");
+}
+    
+    // تحديث واجهة السلة الجانبية (Sidebar)
+    function openSidebar() {
+        const sidebar = document.getElementById('cartSidebar');
+        if (sidebar) {
+            sidebar.classList.remove('translate-x-full');
+        }
+    }
+
+    function toggleSidebar() {
+        const sidebar = document.getElementById('cartSidebar');
+        if (sidebar) {
+            sidebar.classList.toggle('translate-x-full');
+        }
+    }   // --- 10. معالجة نموذج الدفع ومناطق التوصيل ---
+    function populateWilayas() {
+        const s = document.getElementById('cWilaya');
+        if (!s) return;
+
+        // استخدام shippingData التي جلبناها في initStore
+        const activeWilayas = shippingData.filter(w => w.active === true);
+
+        if (activeWilayas.length === 0) {
+            s.innerHTML = '<option value="">لا توجد ولايات متوفرة</option>';
+        } else {
+            s.innerHTML = '<option value="">اختر ولايتك...</option>' +
+                activeWilayas.map(w => `<option value="${w.name}">${w.name}</option>`).join('');
+        }
+    }
+
+    async function onWilayaChange() {
+        const wilayaId = document.getElementById('cWilaya').value;
+        const muniSelect = document.getElementById('cMuni');
+
+        // 1. فحص الأمان: التأكد من وجود العناصر قبل البدء
+        if (!muniSelect) {
+            console.error("خطأ: لم أجد عنصر HTML باسم cMuni");
+            return;
+        }
+
+        if (!wilayaId) {
+            muniSelect.innerHTML = '<option value="">اختر الولاية أولاً</option>';
+            muniSelect.disabled = true;
+            resetDeliveryButtons();
+            return;
+        }
+
+        try {
+            // 2. استخدام العميل الصحيح (سواء كان _supabase أو supabase)
+            const client = typeof _supabase !== 'undefined' ? _supabase : supabase;
+            if (!client) throw new Error("Supabase client is not initialized");
+
+            // أ- جلب البلديات
+            const { data: munis, error: mError } = await client
+                .from('municipalities')
+                .select('name, home_price_override, office_price_override, allow_home, allow_office')
+                .eq('wilaya_id', wilayaId)
+                .order('name', { ascending: true });
+
+            if (mError) throw mError;
+
+            muniSelect.innerHTML = '<option value="">اختر البلدية</option>';
+            if (munis && munis.length > 0) {
+                window.currentMunisList = munis;
+                munis.forEach(m => {
+                    muniSelect.innerHTML += `<option value="${m.name}">${m.name}</option>`;
+                });
+            } else {
+                muniSelect.innerHTML += '<option value="المركز">البلدية المركزية</option>';
+            }
+            muniSelect.disabled = false;
+
+            // ب- جلب السعر العام للولاية
+            const { data: config, error: cError } = await client
+                .from('shipping_config')
+                .select('*')
+                .eq('wilaya_id', wilayaId)
+                .maybeSingle(); // استخدام maybeSingle لتجنب الخطأ إذا لم تكن موجودة
+
+            if (config) {
+                window.currentWilayaConfig = config;
+            }
+
+            resetDeliveryButtons();
+            calculateFinalTotals();
+
+        } catch (err) {
+            console.error("حدث خطأ في جلب البيانات:", err.message);
+        }
+    }
+    function onMuniChange() {
+        const muniName = document.getElementById('cMuni').value;
+        const config = window.currentWilayaConfig;
+        const muniData = window.currentMunisList?.find(m => m.name === muniName);
+
+        if (!config || !muniData) return;
+
+        const btnHome = document.getElementById('btnHome');
+        const btnOffice = document.getElementById('btnOffice');
+
+        // تحديد الأسعار
+        let pHome = muniData.home_price_override ?? config.home_price;
+        let pOffice = muniData.office_price_override ?? config.office_price;
+
+        // فحص التوفر (من الولاية والبلدية معاً)
+        let canHome = (config.allow_home !== false) && (muniData.allow_home !== false);
+        let canOffice = (config.allow_office !== false) && (muniData.allow_office !== false);
+
+        // تحديث زر المنزل
+        if (canHome && pHome !== undefined) {
+            btnHome.classList.remove('opacity-30', 'pointer-events-none');
+            btnHome.querySelector('.price-tag').innerText = `+ ${pHome} دج`;
+            document.getElementById('radioHome').dataset.price = pHome;
+        } else {
+            btnHome.classList.add('opacity-30', 'pointer-events-none');
+            btnHome.querySelector('.price-tag').innerText = "غير متوفر";
+            document.getElementById('radioHome').checked = false;
+        }
+
+        // تحديث زر المكتب
+        if (canOffice && pOffice !== undefined) {
+            btnOffice.classList.remove('opacity-30', 'pointer-events-none');
+            btnOffice.querySelector('.price-tag').innerText = `+ ${pOffice} دج`;
+            document.getElementById('radioOffice').dataset.price = pOffice;
+        } else {
+            btnOffice.classList.add('opacity-30', 'pointer-events-none');
+            btnOffice.querySelector('.price-tag').innerText = "غير متوفر";
+            document.getElementById('radioOffice').checked = false;
+        }
+
+        calculateFinalTotals();
+    }
+    function resetDeliveryButtons() {
+        const inputs = document.querySelectorAll('input[name="deliveryMethod"]');
+        inputs.forEach(input => {
+            input.checked = false;
+            input.parentElement.classList.add('opacity-30', 'pointer-events-none');
+            input.parentElement.querySelector('.price-tag').innerText = "-- دج";
+        });
+    }
+    function calculateFinalTotals() {
+    // 1. جلب السعر المخصوم الذي حسبناه في السلة (بدون توصيل)
+    let subtotal = window.lastCalculatedSubtotal || 0;
+
+    // 2. جلب سعر التوصيل من الخيار المختار في فورم البيانات
+    let shippingCost = 0;
+    const selectedDelivery = document.querySelector('input[name="deliveryMethod"]:checked');
+    if (selectedDelivery) {
+        shippingCost = parseInt(selectedDelivery.dataset.price) || 0;
+    }
+
+    // 3. الحساب النهائي
+    const finalTotal = subtotal + shippingCost;
+
+    // --- التحديث المتزامن لجميع العناصر ---
+    
+    // تحديث "إجمالي المشتريات" (الذي اشتكيت منه في Step 1)
+    const step1TotalEl = document.getElementById('step1Total');
+    if (step1TotalEl) {
+        step1TotalEl.innerText = subtotal.toLocaleString() + " دج";
+    }
+
+    // تحديث "المجموع النهائي" (في فورم البيانات - Step 2)
+    const cartTotalValEl = document.getElementById('cartTotalVal');
+    if (cartTotalValEl) {
+        cartTotalValEl.innerText = finalTotal.toLocaleString();
+    }
+
+    // حفظ القيم للإرسال لـ Supabase لاحقاً
+    window.lastCalculatedShipping = shippingCost;
+    window.lastCalculatedTotal = finalTotal;
+
+    console.log("تم التحديث: المشتريات=" + subtotal + " | التوصيل=" + shippingCost + " | الإجمالي=" + finalTotal);
+}
+    // --- 11. إرسال الطلب (Submit Order) ---
+async function submitOrder(event) {
+    if (event) event.preventDefault();
+
+    const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cartData.length === 0) return showToast("⚠️ الحقيبة فارغة حالياً!", "error");
+
+    const btn = document.querySelector('#orderSubmitBtn');
+
+    try {
+        if (btn) { 
+            btn.disabled = true; 
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري معالجة طلبك...'; 
+        }
+
+        // 1. حساب الإجمالي وتجهيز العناصر
+        let calculatedSubtotal = 0;
+        const orderItems = cartData.map(item => {
+            const product = allProducts.find(p => String(p.id) === String(item.id)) || item;
+            const priceResult = typeof calculateBestPrice === "function" ? calculateBestPrice(item.qty, product) : { final: (product.price * item.qty) };
+            const unitPrice = priceResult.final / item.qty;
+            calculatedSubtotal += priceResult.final;
+
+            return {
+                id: item.id,
+                name: item.name,
+                price: Math.round(unitPrice),
+                qty: item.qty,
+                color: item.color || "افتراضي",
+                size: item.size || "افتراضي"
+            };
+        });
+
+        // 2. جلب الأكواد (مهم جداً لشركات التوصيل)
+        const wilayaSelect = document.getElementById('cWilaya');
+        const muniSelect = document.getElementById('cMuni');
+        
+        const wilayaCode = wilayaSelect?.value; // كود الولاية (مثلاً 26)
+        const wilayaName = wilayaSelect?.options[wilayaSelect.selectedIndex]?.text;
+        const muniName = muniSelect?.options[muniSelect.selectedIndex]?.text || muniSelect?.value;
+
+        const deliveryMethodEl = document.querySelector('input[name="deliveryMethod"]:checked');
+        const deliveryType = deliveryMethodEl ? deliveryMethodEl.value : "office";
+
+        const orderData = {
+            customer: document.getElementById('cName')?.value || "",
+            phone: document.getElementById('cPhone')?.value || "",
+            wilaya_id: wilayaCode, // حفظ الكود للربط الآلي
+            city: wilayaName,
+            municipality: muniName,
+            address: document.getElementById('cAddress')?.value || "عنوان غير محدد",
+            delivery_type: deliveryType,
+            items: orderItems,
+            subtotal: Math.round(calculatedSubtotal),
+            shipping_cost: window.lastCalculatedShipping || 0,
+            total: window.lastCalculatedTotal || (calculatedSubtotal + (window.lastCalculatedShipping || 0)),
+            status: 'pending',
+            created_at: new Date().toISOString()
+        };
+
+        // --- 3. الخطوة الحاسمة: خصم المخزون (المطورة) ---
+for (const item of orderItems) {
+    const product = allProducts.find(p => String(p.id) === String(item.id));
+    if (product && product.stock_data && product.stock_data.length > 0) {
+        
+        const updatedStock = product.stock_data.map(stockItem => {
+            // الحالة 1: منتج بتفاصيل (مقاس ولون حقيقيين)
+            const matchNormal = (stockItem.color === item.color && stockItem.size === item.size);
+            
+            // الحالة 2: منتج بسيط (عطر) - نتحقق إذا كانت القيم "افتراضية" أو فارغة
+            const isSimpleProduct = (!item.color || item.color === "افتراضي") && (!item.size || item.size === "افتراضي");
+            const isSimpleStockEntry = (!stockItem.color || stockItem.color === "" || stockItem.color === null);
+            
+            if (matchNormal || (isSimpleProduct && isSimpleStockEntry)) {
+                return { ...stockItem, qty: Math.max(0, parseInt(stockItem.qty) - item.qty) };
+            }
+            return stockItem;
+        });
+
+        // إرسال التحديث لسوبابيس
+        const { error: stockErr } = await supabase
+            .from('products')
+            .update({ stock_data: updatedStock })
+            .eq('id', item.id);
+        
+        if (stockErr) console.error("فشل تحديث المخزون للمنتج:", item.id, stockErr);
+    }
+}
+        // 4. حفظ الطلب في جدول orders
+        const { error } = await supabase.from('orders').insert([orderData]);
+        if (error) throw error;
+
+        // 5. النجاح والتنظيف
+        localStorage.removeItem('cart');
+        showToast("✅ تم استلام طلبك بنجاح! سنتصل بك قريباً");
+        
+        setTimeout(() => { location.reload(); }, 2000);
+
+    } catch (err) {
+        console.error("خطأ:", err);
+        showToast("❌ فشل الطلب: " + err.message, "error");
+        if (btn) { btn.disabled = false; btn.innerHTML = 'تأكيد الطلب'; }
+    }
+}
+    // --- 12. دوال مساعدة لفتح وإغلاق النوافذ ---
+    function openModal(id) {
+        const el = document.getElementById(id);
+        el.classList.remove('hidden');
+        // منع التمرير في الخلفية
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+        document.getElementById(id).classList.add('hidden');
+        // إعادة التمرير
+        document.body.style.overflow = 'auto';
+    }
+
+
+
+    // دالة التبديل بين خطوات السلة
+    function switchCartTab(step) {
+    const tab1 = document.getElementById('cartStep1');
+    const tab2 = document.getElementById('cartStep2');
+
+    if (step === 2) {
+        if (!window.currentCart || window.currentCart.length === 0) {
+            alert("⚠️ حقيبتك فارغة!");
+            return;
+        }
+        tab1.classList.add('hidden');
+        tab2.classList.remove('hidden');
+        // تمرير السكرول للأعلى عند الانتقال
+        document.getElementById('cartSidebar').querySelector('.overflow-y-auto').scrollTop = 0;
+    } else {
+        tab1.classList.remove('hidden');
+        tab2.classList.add('hidden');
+    }
+}
+
+    // تحديث دالة updateSidebarCart لتشمل الملخص الجديد
+function updateSidebarCart() {
+    const list = document.getElementById('sidebarCartItems');
+    const badgeMain = document.getElementById('cartBadgeMain');
+    
+    const saved = localStorage.getItem('cart');
+    const currentCart = (saved && saved !== "undefined") ? JSON.parse(saved) : [];
+    window.currentCart = currentCart;
+
+    // 1. تحديث عداد الحقيبة العلوي
+    let totalQtyCount = currentCart.reduce((sum, item) => sum + (parseInt(item.qty) || 0), 0);
+    if (badgeMain) badgeMain.innerText = totalQtyCount;
+
+    if (currentCart.length === 0) {
+        if (list) list.innerHTML = `
+            <div class="py-20 flex flex-col items-center justify-center text-slate-400 opacity-60">
+                <i class="fas fa-shopping-bag text-5xl mb-4"></i>
+                <p class="font-bold">الحقيبة فارغة حالياً</p>
+            </div>`;
+        if (typeof updateFinalUI === 'function') updateFinalUI(0);
+        return;
+    }
+
+    // 2. التجميع الذكي (الدمج المثالي)
+    const groupedProducts = {};
+    let grandTotal = 0;
+
+    currentCart.forEach(item => {
+        const prodId = String(item.id);
+        const variantKey = `${item.color}-${item.size}`; // مفتاح فريد للتوليفة
+
+        if (!groupedProducts[prodId]) {
+            const realProduct = (typeof allProducts !== 'undefined') ? allProducts.find(p => String(p.id) === prodId) : null;
+            groupedProducts[prodId] = {
+                data: realProduct || item,
+                totalQty: 0,
+                uniqueVariants: {}
+            };
+        }
+
+        // دمج الكمية إذا كان نفس اللون والمقاس تماماً
+        if (groupedProducts[prodId].uniqueVariants[variantKey]) {
+            groupedProducts[prodId].uniqueVariants[variantKey].qty += parseInt(item.qty);
+        } else {
+            groupedProducts[prodId].uniqueVariants[variantKey] = { ...item, qty: parseInt(item.qty) };
+        }
+        
+        groupedProducts[prodId].totalQty += parseInt(item.qty);
+    });
+
+    // 3. رسم الواجهة بتصميم "Premium"
+    if (list) {
+        list.innerHTML = Object.keys(groupedProducts).map(prodId => {
+            const group = groupedProducts[prodId];
+            const productData = group.data;
+
+            // حساب السعر المثالي بناءً على إجمالي كمية المنتج (لتطبيق عروض التوفير)
+            const priceResult = calculateBestPrice(group.totalQty, productData);
+            grandTotal += priceResult.final;
+
+            return `
+            <div class="bg-white dark:bg-slate-900/60 rounded-[2rem] border border-slate-100 dark:border-white/5 mb-4 shadow-sm overflow-hidden transition-all hover:shadow-md">
+                <div class="p-4">
+                    <div class="flex gap-4 items-start mb-4">
+                        <div class="relative w-16 h-16 shrink-0 bg-slate-50 dark:bg-black/20 rounded-2xl p-1 flex items-center justify-center border border-slate-100 dark:border-white/5">
+                            <img src="${productData.image || Object.values(group.uniqueVariants)[0].image}" class="max-w-full max-h-full object-contain drop-shadow-sm">
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-xs font-black text-slate-800 dark:text-white leading-tight line-clamp-2">${productData.name}</h4>
+                            ${priceResult.discount > 0 ? `
+                                <div class="inline-flex items-center gap-1 mt-1 bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-100 dark:border-emerald-500/20">
+                                    <span class="text-[9px] font-bold text-emerald-600 dark:text-emerald-400">خصم العرض مطبق</span>
+                                    <i class="fas fa-check-circle text-[9px] text-emerald-500"></i>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        ${Object.values(group.uniqueVariants).map(v => {
+                            const isHex = v.color && v.color.startsWith('#');
+                            return `
+                            <div class="flex items-center justify-between bg-slate-50 dark:bg-white/5 p-2.5 rounded-xl border border-slate-100 dark:border-white/5">
+                                <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-1.5">
+                                        ${v.color && v.color !== 'افتراضي' ? `
+                                            <div class="flex items-center gap-1 bg-white dark:bg-slate-800 px-1.5 py-1 rounded-lg shadow-sm border border-slate-100 dark:border-white/10">
+                                                ${isHex ? `<span class="w-3.5 h-3.5 rounded-full border border-black/10 shadow-inner" style="background-color: ${v.color}"></span>` : `<span class="text-[9px] font-bold">${v.color}</span>`}
+                                            </div>
+                                        ` : ''}
+                                        ${v.size && v.size !== 'افتراضي' ? `
+                                            <div class="bg-white dark:bg-slate-800 px-2 py-1 rounded-lg shadow-sm border border-slate-100 dark:border-white/10">
+                                                <span class="text-[9px] font-black text-slate-500 uppercase">${v.size}</span>
+                                            </div>
+                                        ` : ''}
+                                    </div>
+                                    <span class="text-[11px] font-bold text-slate-400">× ${v.qty}</span>
+                                </div>
+                                <button onclick="removeFromCartById('${v.cartId}')" class="w-7 h-7 flex items-center justify-center rounded-full text-slate-300 hover:bg-red-50 hover:text-red-500 transition-all">
+                                    <i class="fas fa-times text-xs"></i>
+                                </button>
+                            </div>`;
+                        }).join('')}
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-dashed border-slate-100 dark:border-white/10 flex justify-between items-center">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">المجموع</span>
+                        <span class="text-pink-600 dark:text-pink-500 font-black text-base">
+                            ${Math.round(priceResult.final).toLocaleString()} <small class="text-[10px] opacity-70">دج</small>
+                        </span>
+                    </div>
+                </div>
+            </div>`;
+        }).join('');
+    }
+
+    // 4. إرسال الرقم النهائي للفورم (لضمان التطابق)
+    if (typeof updateFinalUI === 'function') {
+        updateFinalUI(grandTotal);
+    }
+}
+function updateFinalUI(subtotal) {
+    // 1. تخزين السعر في متغير عالمي لكي يستخدمه فورم التوصيل
+    window.lastCalculatedSubtotal = subtotal;
+
+    // 2. تحديث أي عناصر تعرض السعر الإجمالي (إن وجدت)
+    const cartTotalVal = document.getElementById('cartTotalVal'); // الرقم الكبير في فورم الشحن
+    if (cartTotalVal) {
+        cartTotalVal.innerText = Math.round(subtotal).toLocaleString();
+    }
+
+    // 3. استدعاء دالة حساب التوصيل فوراً لتحديث "الإجمالي النهائي"
+    if (typeof calculateFinalTotals === 'function') {
+        calculateFinalTotals();
+    }
+}
+  function validatePhoneLive(input) {
+        const val = input.value;
+        const errorMsg = document.getElementById('phoneErrorMsg');
+        const icon = document.getElementById('phoneIcon'); // تأكد أن هذا الـ ID موجود في الـ HTML
+
+        const dzRegex = /^(05|06|07)[0-9]{8}$/;
+
+        // إذا لم يجد العناصر، اخرج من الدالة حتى لا يتوقف الكود
+        if (!errorMsg) return;
+
+        if (val === "") {
+            errorMsg.classList.add('opacity-0');
+            input.classList.remove('border-red-500', 'border-green-500');
+        } else if (dzRegex.test(val)) {
+            errorMsg.classList.add('opacity-0');
+            input.classList.replace('border-white/10', 'border-green-500');
+            if (icon) icon.className = "fas fa-check-circle absolute left-5 top-1/2 -translate-y-1/2 text-green-500 transition-colors";
+        } else {
+            errorMsg.classList.remove('opacity-0');
+            input.classList.add('border-red-500');
+            if (icon) icon.className = "fas fa-times-circle absolute left-5 top-1/2 -translate-y-1/2 text-red-500 transition-colors";
+        }
+    }
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. جلب البيانات من الذاكرة أولاً
+        allProducts = JSON.parse(localStorage.getItem('ms_products_v4')) || [];
+
+        // 👇👇👇 السطر الذي كان ينقصك لحل المشكلة 👇👇👇
+        shippingData = JSON.parse(localStorage.getItem('ms_shipping_v4')) || [];
+
+        // 2. ملء القوائم
+        populateCategoryFilter();
+        populateWilayas();
+        // 🕵️‍♂️ الجاسوس الأول: هل وصلت البيانات من صفحة المدير؟
+        console.log("1. بيانات الشحن في الذاكرة:", shippingData);
+        // 3. عرض كل المنتجات في البداية
+        renderProducts(allProducts);
+    });
+
+
+
+
+    // 1. جلب الولايات من جدول wilayas وملء القائمة
+    async function populateWilayas() {
+        try {
+            console.log("1. جاري طلب الولايات من قاعدة البيانات...");
+
+            // استخدام المتغير الصحيح حسب كودك (supabase أو _supabase)
+            const client = typeof _supabase !== 'undefined' ? _supabase : supabase;
+
+            const { data, error } = await client
+                .from('wilayas')
+                .select('*')
+                .order('code', { ascending: true });
+
+            if (error) {
+                console.error("2. فشل جلب الولايات:", error.message);
+                return;
+            }
+
+            console.log("3. تم استلام الولايات بنجاح:", data.length);
+
+            const select = document.getElementById('cWilaya');
+            if (!select) {
+                console.error("4. لم يتم العثور على عنصر 'cWilaya' في HTML");
+                return;
+            }
+
+            select.innerHTML = '<option value="">اختر الولاية</option>';
+            data.forEach(w => {
+                select.innerHTML += `<option value="${w.id}">${w.code} - ${w.name}</option>`;
+            });
+
+            console.log("5. تم تحديث القائمة المنسدلة للولايات.");
+
+        } catch (err) {
+            console.error("خطأ غير متوقع في populateWilayas:", err);
+        }
+    }
+    // 2. عند اختيار ولاية: جلب البلديات وأسعار الشحن الخاصة بها
+
+    function selectDelivery(method) {
+        const radio = document.getElementById(method === 'home' ? 'radioHome' : 'radioOffice');
+        const parent = radio.parentElement;
+
+        // إذا كان الزر مضللاً (غير متاح)، لا تفعل شيئاً
+        if (parent.classList.contains('pointer-events-none')) return;
+
+        radio.checked = true;
+        calculateFinalTotals();
+    }
+    // تحميل الولايات بمجرد جاهزية الصفحة
+    document.addEventListener('DOMContentLoaded', () => {
+        if (typeof loadWilayas === "function") {
+            populateWilayas();
+        }
+    });
+    // هذا الكود سيجبر المتصفح على تحميل الولايات بمجرد فتح الصفحة
+    window.onload = function () {
+        console.log("تم تحميل الصفحة، جاري جلب الولايات...");
+        if (typeof loadWilayas === "function") {
+            populateWilayas();
+        } else {
+            console.error("دالة loadWilayas غير معرفة في هذا الملف!");
+        }
+    };
+
+    function refreshStep1Total() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let total = 0;
+    
+    cart.forEach(item => {
+        total += (parseFloat(item.price) * parseInt(item.qty));
+    });
+
+    const display = document.getElementById('step1Total');
+    if (display) {
+        display.innerText = total.toLocaleString() + " دج";
+    }
+}
+
+// استدعاء التحديث كلما فتحت السلة أو تغيرت محتوياتها
+document.addEventListener('click', function() {
+    setTimeout(refreshStep1Total, 100); 
+});
+    // دالة واحدة لتشغيل كل المحركات عند فتح الموقع
+    // دالة التشغيل المركزية المعدلة لتناسب أسماء دوالك
+    async function startEverything() {
+        console.log("🚀 جاري بدء تشغيل المتجر...");
+
+        // 1. تشغيل دالة المنتجات (دالتك الأصلية)
+        if (typeof initStore === "function") {
+            await initStore();
+            console.log("✅ تم تحميل المنتجات بنجاح");
+        } else {
+            console.error("❌ دالة initStore غير معرفة!");
+        }
+
+        // 2. تشغيل دالة الولايات (التي وحدنا اسمها)
+        if (typeof populateWilayas === "function") {
+            await populateWilayas();
+            console.log("✅ تم تحميل قائمة الولايات");
+        }
+
+        // 3. تحديث السلة من الذاكرة
+        if (typeof renderCartItems === "function") {
+            renderCartItems();
+        }
+    }
+
+    // السطر الوحيد المسؤول عن التشغيل عند فتح الصفحة
+    document.addEventListener('DOMContentLoaded', startEverything);
+ // استدعاء واحد فقط، منظم ونظيف
+// ✅ ضعه في آخر سطر في ملف الـ JavaScript الخاص بك
+function initApp() {
+    console.log("🚀 جاري تهيئة التطبيق...");
+    
+    // 1. جلب البيانات من localStorage وتخزينها في الذاكرة العامة
+    const saved = localStorage.getItem('cart');
+    window.currentCart = (saved && saved !== "undefined") ? JSON.parse(saved) : [];
+    
+    // 2. تحديث السلة والعدادات فوراً
+    if (typeof updateSidebarCart === "function") {
+        updateSidebarCart();
+        console.log("✅ تم تحديث السلة بنجاح");
+    } else {
+        console.error("❌ خطأ: دالة updateSidebarCart غير معرفة!");
+    }
+    
+    // 3. تشغيل الترجمة إذا كانت موجودة
+    if (typeof applyTranslations === "function") {
+        applyTranslations();
+    }
+}
+
+// تشغيل التهيئة عند جاهزية المتصفح
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+} else {
+    initApp(); // إذا كان المتصفح جاهزاً بالفعل، شغلها فوراً
+}
+// تشغيل الدالة بعد التأكد من أن كل شيء (بما في ذلك الترجمة) قد انتهى
+setTimeout(() => {
+    console.log("استدعاء نهائي لضمان ثبات السلة...");
+    updateSidebarCart();
+}, 500); // ننتظر نصف ثانية للتأكد من استقرار الصفحة
+</script>
+
+    <script>
+        // --- Dark Mode Stars Effect ---
+        window.addEventListener('themeChanged', (e) => {
+            const canvas = document.getElementById('starCanvas');
+            if(e.detail.theme === 'dark') {
+                canvas.style.opacity = '1';
+                initStars();
+            } else {
+                canvas.style.opacity = '0';
+                if(window.animationFrameId) cancelAnimationFrame(window.animationFrameId);
+            }
+        });
+
+        setTimeout(() => {
+            if(document.documentElement.classList.contains('dark')) {
+                document.getElementById('starCanvas').style.opacity = '1';
+                initStars();
+            }
+        }, 500);
+
+        function initStars() {
+            const canvas = document.getElementById('starCanvas');
+            if(!canvas) return;
+            let currentModalRating = 0;
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+            
+            const stars = Array.from({length: 150}, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 1.5,
+                opacity: Math.random(),
+                speedX: (Math.random() - 0.5) * 0.2,
+                speedY: (Math.random() - 0.5) * 0.2
+            }));
+
+            let mouseX = width/2;
+            let mouseY = height/2;
+
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+
+            function render() {
+                ctx.clearRect(0, 0, width, height);
+                stars.forEach(s => {
+                    s.x += s.speedX + (mouseX - width/2) * 0.0001;
+                    s.y += s.speedY + (mouseY - height/2) * 0.0001;
+                    if(s.x < 0) s.x = width; if(s.x > width) s.x = 0;
+                    if(s.y < 0) s.y = height; if(s.y > height) s.y = 0;
+                    
+                    s.opacity += (Math.random() - 0.5) * 0.05;
+                    s.opacity = Math.max(0.1, Math.min(1, s.opacity));
+                    
+                    ctx.beginPath();
+                    ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(217, 160, 91, ${s.opacity})`; // Copper/Gold star color
+                    ctx.fill();
+                });
+                window.animationFrameId = requestAnimationFrame(render);
+            }
+            render();
+        }
+    </script>
+</body>
+
+</html>
